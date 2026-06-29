@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__click",
+      "Bash(mkdir -p public)",
+      "Bash(cp \"Elena Portrait.jpg\" public/elena-portrait.jpg)",
+      "Bash(identify public/elena-portrait.jpg)",
+      "mcp__chrome-devtools__fill"
+    ]
+  }
+}

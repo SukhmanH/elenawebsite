@@ -1,0 +1,83 @@
+'use client'
+
+import Image from 'next/image'
+import { Reveal } from '@/components/ui/reveal'
+import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+
+const IMAGES = [
+  { src: '/portrait-1.jpg', alt: 'Elena Collins seated on a yoga mat in a rose garden' },
+  { src: '/portrait-2.jpg', alt: 'Elena Collins practicing yoga outdoors' },
+  { src: '/portrait-3.jpg', alt: 'Elena Collins teaching a yoga pose' },
+]
+
+export function About() {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((current) => (current + 1) % IMAGES.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <section id="about" className="bg-sand py-28 sm:py-36">
+      <div className="mx-auto grid max-w-[1400px] items-center gap-14 px-6 sm:px-10 md:grid-cols-2 md:gap-20">
+        <Reveal>
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] bg-char">
+            <AnimatePresence>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5, ease: 'easeInOut' }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={IMAGES[index].src}
+                  alt={IMAGES[index].alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-[50%_30%]"
+                  priority={index === 0}
+                />
+              </motion.div>
+            </AnimatePresence>
+            {/* Soft charcoal vignette at the base for grounding */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-1/3 bg-gradient-to-t from-char/40 to-transparent"
+            />
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <p className="text-xs uppercase tracking-[0.4em] text-gold-deep">
+            About me
+          </p>
+          <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-char sm:text-5xl lg:text-6xl">
+            A small, unhurried practice.
+          </h2>
+          <div className="mt-8 space-y-5 text-lg leading-relaxed text-char/70">
+            <p>
+              I&apos;m Elena. I teach the way I practice: softly, and in small
+              rooms. No studio with a hundred mats, just a quiet space, a
+              steady breath, and the same handful of movements returned to until
+              they feel like home.
+            </p>
+            <p>
+              The membership is my way of sitting with you each morning,
+              wherever you are. A few minutes of breath before the day asks
+              anything of you.
+            </p>
+          </div>
+          <p className="mantra mt-10 text-2xl text-gold-deep">
+            Let all that you do be done in love.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  )
+}

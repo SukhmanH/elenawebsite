@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/*
+  Breath & Balance — editorial, high-contrast.
+  Warm cream paper, charcoal ink, a single muted gold. Big dramatic serif.
+*/
+@theme {
+  --color-sand: #ece6da; /* page paper */
+  --color-cream: #f4f0e7; /* lighter panels */
+  --color-char: #15130d;  /* near-black, warm — dark sections + ink */
+  --color-char-2: #211d15;
+  --color-gold: #c2a878;  /* the single accent */
+  --color-gold-deep: #a98a57;
+  --color-stone: #8c8475; /* muted secondary text */
+
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-hanken);
+  --default-font-family: var(--font-hanken);
+}
+
+:root {
+  --background: var(--color-sand);
+  --foreground: var(--color-char);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-sand);
+    color: var(--color-char);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-char);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+}
+
+/* The mantra — Playfair italic, gold, used sparingly. */
+.mantra {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
