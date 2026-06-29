@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Reveal } from '@/components/ui/reveal'
-import { LiquidButton } from '@/components/ui/liquid-glass-button'
 
 const COMING = [
   'New guided practices every week',
@@ -87,7 +86,6 @@ export function MailingList() {
                       placeholder="you@email.com"
                       className="w-full rounded-full border border-gold/30 bg-transparent px-6 py-4 text-sand placeholder:text-sand/40 focus:border-gold focus:outline-none disabled:opacity-50"
                     />
-                    {/*
                     <button
                       type="submit"
                       disabled={loading}
@@ -95,13 +93,6 @@ export function MailingList() {
                     >
                       {loading ? 'Joining...' : 'Join the mailing list'}
                     </button>
-                    */}
-                    <LiquidButton
-                      type="submit"
-                      disabled={loading}
-                    >
-                      {loading ? 'Joining...' : 'Join the mailing list'}
-                    </LiquidButton>
                   </div>
                   {error && (
                     <p className="mt-3 text-sm text-red-400">

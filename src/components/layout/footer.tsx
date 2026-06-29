@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { Reveal } from '@/components/ui/reveal'
 import { LogoBadge } from '@/components/ui/logo-badge'
-import { LiquidButton } from '@/components/ui/liquid-glass-button'
 
 const INSTAGRAM = [
   { handle: '@elenacollinsyoga', href: 'https://instagram.com/elenacollinsyoga' },
@@ -21,18 +20,11 @@ export function Footer() {
             you know the moment it opens.
           </p>
 
-          {/*
           <Link
             href="#newsletter"
             className="mt-10 inline-flex rounded-full bg-gold px-10 py-4 text-sm font-medium tracking-wide text-char transition-colors hover:bg-gold-deep"
           >
             Join the mailing list
-          </Link>
-          */}
-          <Link href="#newsletter">
-            <LiquidButton className="mt-10 px-10 py-4">
-              Join the mailing list
-            </LiquidButton>
           </Link>
           <p className="mt-4 text-sm text-sand/40">
             Or say hello on Instagram.

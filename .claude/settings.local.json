@@ -9,7 +9,10 @@
       "Bash(mkdir -p public)",
       "Bash(cp \"Elena Portrait.jpg\" public/elena-portrait.jpg)",
       "Bash(identify public/elena-portrait.jpg)",
-      "mcp__chrome-devtools__fill"
+      "mcp__chrome-devtools__fill",
+      "PowerShell(taskkill /PID 35748 /F)",
+      "Bash(ls src/lib/)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); ['lucide-react','framer-motion','@radix-ui/react-slot','class-variance-authority'].forEach\\(d=>console.log\\(d, p.dependencies[d]||'MISSING'\\)\\)\")"
     ]
   }
 }

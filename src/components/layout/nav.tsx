@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer-motion'
 import { LogoBadge } from '@/components/ui/logo-badge'
-import { LiquidButton } from '@/components/ui/liquid-glass-button'
 
 const PRIMARY = [
   { href: '#about', label: 'About' },
@@ -52,7 +51,7 @@ export function Nav() {
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-6 sm:px-10">
           <Link href="#top" aria-label="Breath & Balance home" className="text-char">
-            <LogoBadge className="h-14 w-14" />
+            {/* LogoBadge removed to avoid duplicate after loading */}
           </Link>
 
           <button
@@ -115,22 +114,12 @@ export function Nav() {
                 </nav>
 
                 <motion.div variants={item} className="md:pl-8">
-                  {/*
                   <Link
                     href="#newsletter"
                     onClick={() => setOpen(false)}
                     className="inline-flex rounded-full bg-gold px-9 py-4 text-sm font-medium tracking-wide text-char transition-colors hover:bg-gold-deep"
                   >
                     Join the mailing list
-                  </Link>
-                  */}
-                  <Link
-                    href="#newsletter"
-                    onClick={() => setOpen(false)}
-                  >
-                    <LiquidButton className="px-9 py-4">
-                      Join the mailing list
-                    </LiquidButton>
                   </Link>
 
                   <ul className="mt-12 space-y-3 text-gold/70">

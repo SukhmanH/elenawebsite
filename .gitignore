@@ -14,6 +14,9 @@
 .DS_Store
 *.pem
 
+# raw source videos (unprocessed downloads, not used by site)
+/elenaVideos/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

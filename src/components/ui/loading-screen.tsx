@@ -51,6 +51,7 @@ export function LoadingScreen() {
 
   return (
     <AnimatePresence>
+      {/* Centered loader while loading */}
       {!done && (
         <motion.div
           key="loader"
@@ -63,34 +64,30 @@ export function LoadingScreen() {
           <span className="absolute top-[14%] text-sm tabular-nums tracking-[0.35em] text-gold/70">
             {count}
           </span>
-
           <div className="relative h-[152px] w-[152px]">
-            <svg
-              viewBox="0 0 100 100"
-              className="absolute inset-0 -rotate-90"
-              fill="none"
-            >
+            <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90" fill="none">
               <circle cx="50" cy="50" r={R} stroke="currentColor" strokeOpacity={0.18} strokeWidth={1} />
-              <circle
-                cx="50"
-                cy="50"
-                r={R}
-                stroke="currentColor"
-                strokeWidth={1.2}
-                strokeLinecap="round"
-                strokeDasharray={CIRCUMFERENCE}
-                strokeDashoffset={dashoffset}
-              />
+              <circle cx="50" cy="50" r={R} stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeDasharray={CIRCUMFERENCE} strokeDashoffset={dashoffset} />
             </svg>
-
-            <div className="absolute inset-0 grid place-items-center">
-              <LogoBadge
-                withRing={false}
-                strokeWidth={1.5}
-                className="h-[78px] w-[78px] text-gold"
-              />
-            </div>
+            <motion.div layoutId="logo" className="absolute inset-0 grid place-items-center">
+              <LogoBadge withRing={false} strokeWidth={1.5} className="h-[78px] w-[78px] text-gold" />
+            </motion.div>
           </div>
+        </motion.div>
+      )}
+
+      {/* Logo after loading, positioned top‑left */}
+      {done && (
+        <motion.div
+          key="logo"
+          className="fixed left-6 top-6 z-[60]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.div layoutId="logo" className="h-10 w-10">
+            <LogoBadge withRing={false} strokeWidth={1.5} className="h-10 w-10 text-gold" />
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
