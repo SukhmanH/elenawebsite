@@ -31,14 +31,14 @@ export function Pillars() {
         <div className="mt-20 grid gap-12 md:grid-cols-3">
           {PILLARS.map((pillar, i) => (
             <Reveal key={pillar.name} delay={i * 0.1}>
-              <div className="border-t border-gold/30 pt-6">
-                <span className="font-display text-2xl italic text-gold">
+              <div className="group border-t border-gold/30 pt-6 transition-all duration-500 hover:-translate-y-1 hover:border-gold/80">
+                <span className="font-display text-2xl italic text-gold/70 transition-colors duration-500 group-hover:text-gold">
                   0{i + 1}
                 </span>
                 <h3 className="mt-4 font-display text-3xl font-medium text-sand">
                   {pillar.name}
                 </h3>
-                <p className="mt-5 leading-relaxed text-sand/60">
+                <p className="mt-5 leading-relaxed text-sand/60 transition-colors duration-500 group-hover:text-sand/80">
                   {pillar.body}
                 </p>
               </div>

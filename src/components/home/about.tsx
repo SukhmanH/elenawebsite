@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { Reveal } from '@/components/ui/reveal'
 import { useState, useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 const IMAGES = [
   { src: '/portrait-1.jpg', alt: 'Elena Collins seated on a yoga mat in a rose garden' },
@@ -12,14 +12,16 @@ const IMAGES = [
 ]
 
 export function About() {
+  const reduce = useReducedMotion()
   const [index, setIndex] = useState(0)
 
+  // Re-created whenever index changes, so a manual dot click resets the clock.
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((current) => (current + 1) % IMAGES.length)
     }, 5000)
     return () => clearInterval(timer)
-  }, [])
+  }, [index])
 
   return (
     <section id="about" className="bg-sand py-28 sm:py-36">
@@ -29,10 +31,14 @@ export function About() {
             <AnimatePresence>
               <motion.div
                 key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, scale: reduce ? 1 : 1.06 }}
+                animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 1.5, ease: 'easeInOut' }}
+                transition={{
+                  opacity: { duration: 1.2, ease: 'easeInOut' },
+                  // Ken Burns — the settle outlasts the 5s slot so it never sits still.
+                  scale: { duration: 6.5, ease: 'easeOut' },
+                }}
                 className="absolute inset-0"
               >
                 <Image
@@ -50,6 +56,20 @@ export function About() {
               aria-hidden
               className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-1/3 bg-gradient-to-t from-char/40 to-transparent"
             />
+            <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+              {IMAGES.map((img, i) => (
+                <button
+                  key={img.src}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`Show photo ${i + 1} of ${IMAGES.length}`}
+                  aria-current={i === index}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
+                    i === index ? 'w-7 bg-gold' : 'w-1.5 bg-sand/60 hover:bg-sand'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </Reveal>
 

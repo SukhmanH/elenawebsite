@@ -12,7 +12,12 @@
       "mcp__chrome-devtools__fill",
       "PowerShell(taskkill /PID 35748 /F)",
       "Bash(ls src/lib/)",
-      "Bash(node -e \"const p=require\\('./package.json'\\); ['lucide-react','framer-motion','@radix-ui/react-slot','class-variance-authority'].forEach\\(d=>console.log\\(d, p.dependencies[d]||'MISSING'\\)\\)\")"
+      "Bash(node -e \"const p=require\\('./package.json'\\); ['lucide-react','framer-motion','@radix-ui/react-slot','class-variance-authority'].forEach\\(d=>console.log\\(d, p.dependencies[d]||'MISSING'\\)\\)\")",
+      "Bash(git commit -m ' *)",
+      "Bash(git fetch *)",
+      "Bash(git rebase *)",
+      "Bash(git stash *)",
+      "Bash(echo \"TSC-EXIT:$?\")"
     ]
   }
 }

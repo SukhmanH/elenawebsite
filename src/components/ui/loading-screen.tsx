@@ -3,13 +3,39 @@
 import { useEffect, useRef, useState } from 'react'
 import { animate, AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { LogoBadge } from '@/components/ui/logo-badge'
+import { markIntroDone } from '@/lib/intro-state'
 
 const R = 46
 const CIRCUMFERENCE = 2 * Math.PI * R
 
+/** Heavy assets to warm into the browser cache while the intro plays. */
+const PRELOAD = ['/practice-3.mp4', '/practice-2.mp4', '/practice-1.mp4']
+
+/** Floor so the intro never flickers, and a cap so a stalled asset can't trap the user. */
+const MIN_MS = 1100
+const MAX_MS = 3000
+
+/** Kick off a video download and resolve once it has enough to play (or errors out). */
+function preloadVideo(src: string): Promise<void> {
+  return new Promise((resolve) => {
+    const v = document.createElement('video')
+    v.preload = 'auto'
+    v.muted = true
+    const finish = () => resolve()
+    v.addEventListener('canplaythrough', finish, { once: true })
+    v.addEventListener('error', finish, { once: true })
+    v.src = src
+    v.load()
+  })
+}
+
 /**
  * Entry loading screen: a dark stage with a gold progress ring filling around
  * the blossom mark while a counter climbs to 100, then it fades into the page.
+ * The intro is brief and the idle time does real work — it preloads the heavy
+ * practice videos so they're warm by the time the visitor scrolls to them.
+ * Completion waits for both a minimum on-screen time and the preloads (capped),
+ * so it never feels jumpy and never hangs on a slow network.
  * Locks scroll while visible; collapses to a quick fade under reduced motion.
  */
 export function LoadingScreen() {
@@ -21,29 +47,52 @@ export function LoadingScreen() {
   useEffect(() => {
     if (reduce) {
       setCount(100)
-      doneTimer.current = setTimeout(() => setDone(true), 550)
+      // Still warm the cache, just without the visible ring animation.
+      PRELOAD.forEach(preloadVideo)
+      doneTimer.current = setTimeout(() => setDone(true), 400)
       return () => {
         if (doneTimer.current) clearTimeout(doneTimer.current)
       }
     }
+
+    const start = Date.now()
+    let finished = false
+    const finish = () => {
+      if (finished) return
+      finished = true
+      const elapsed = Date.now() - start
+      const wait = Math.max(0, MIN_MS - elapsed)
+      doneTimer.current = setTimeout(() => setDone(true), wait + 220)
+    }
+
     const controls = animate(0, 100, {
-      duration: 1.8,
+      duration: MIN_MS / 1000,
       ease: [0.4, 0, 0.2, 1],
       onUpdate: (v) => setCount(Math.round(v)),
-      onComplete: () => {
-        doneTimer.current = setTimeout(() => setDone(true), 380)
-      },
     })
+
+    // Race the real preloads against a hard cap so we never wait forever.
+    const cap = setTimeout(finish, MAX_MS)
+    Promise.all(PRELOAD.map(preloadVideo)).then(finish)
+
     return () => {
       controls.stop()
+      clearTimeout(cap)
       if (doneTimer.current) clearTimeout(doneTimer.current)
     }
   }, [reduce])
 
   useEffect(() => {
     document.body.style.overflow = done ? '' : 'hidden'
+    if (done) {
+      window.__lenis?.start()
+      markIntroDone()
+    } else {
+      window.__lenis?.stop()
+    }
     return () => {
       document.body.style.overflow = ''
+      window.__lenis?.start()
     }
   }, [done])
 

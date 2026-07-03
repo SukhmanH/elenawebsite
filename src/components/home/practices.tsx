@@ -25,8 +25,8 @@ export function Practices() {
         <div className="mt-16 border-t border-char/15">
           {PRACTICES.map((p, i) => (
             <Reveal key={p.title} delay={(i % 2) * 0.06}>
-              <div className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 gap-y-2 border-b border-char/15 py-8 transition-colors sm:grid-cols-[5rem_1fr_auto] sm:py-10">
-                <span className="font-display text-lg italic text-gold-deep">
+              <div className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 gap-y-2 border-b border-char/15 py-8 transition-all duration-500 hover:bg-char/[0.03] hover:pl-3 sm:grid-cols-[5rem_1fr_auto] sm:py-10 sm:hover:pl-5">
+                <span className="font-display text-lg italic text-gold-deep/70 transition-colors duration-500 group-hover:text-gold-deep">
                   0{i + 1}
                 </span>
                 <div>
@@ -35,7 +35,7 @@ export function Practices() {
                   </h3>
                   <p className="mt-2 max-w-md text-char/60">{p.body}</p>
                 </div>
-                <span className="col-start-2 text-xs uppercase tracking-[0.25em] text-stone sm:col-start-3 sm:justify-self-end">
+                <span className="col-start-2 text-xs uppercase tracking-[0.25em] text-stone transition-colors duration-500 group-hover:text-char/70 sm:col-start-3 sm:justify-self-end">
                   {p.length}
                 </span>
               </div>

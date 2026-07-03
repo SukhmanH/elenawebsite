@@ -33,7 +33,7 @@ export function Testimonials() {
 
         <div className="mt-16 grid gap-px overflow-hidden rounded-[1.5rem] border border-char/10 bg-char/10 md:grid-cols-3">
           {QUOTES.map((t, i) => (
-            <Reveal key={i} delay={i * 0.1} className="bg-sand">
+            <Reveal key={i} delay={i * 0.1} className="bg-sand transition-colors duration-700 hover:bg-cream">
               <figure className="flex h-full flex-col p-8 sm:p-10">
                 <span aria-hidden className="font-display text-5xl leading-none text-gold">
                   &ldquo;

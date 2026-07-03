@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
 
 const COMING = [
@@ -51,8 +52,13 @@ export function MailingList() {
   return (
     <section id="newsletter" className="bg-sand py-28 sm:py-36">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="overflow-hidden rounded-[2rem] bg-char text-sand">
-          <div className="grid gap-12 p-10 sm:p-16 md:grid-cols-2 md:items-center md:gap-20">
+        <div className="relative overflow-hidden rounded-[2rem] bg-char text-sand">
+          {/* Soft gold aura so the dark panel doesn't read flat */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(194,168,120,0.16),transparent_55%)]"
+          />
+          <div className="relative grid gap-12 p-10 sm:p-16 md:grid-cols-2 md:items-center md:gap-20">
             <Reveal>
               <p className="text-xs uppercase tracking-[0.4em] text-gold">
                 The membership is coming
@@ -67,9 +73,14 @@ export function MailingList() {
               </p>
 
               {done ? (
-                <p className="mt-8 font-display text-2xl italic text-gold">
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="mt-8 font-display text-2xl italic text-gold"
+                >
                   {message}
-                </p>
+                </motion.p>
               ) : (
                 <form onSubmit={onSubmit} className="mt-8">
                   <label htmlFor="ml-email" className="sr-only">
@@ -84,12 +95,12 @@ export function MailingList() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@email.com"
-                      className="w-full rounded-full border border-gold/30 bg-transparent px-6 py-4 text-sand placeholder:text-sand/40 focus:border-gold focus:outline-none disabled:opacity-50"
+                      className="w-full rounded-full border border-gold/30 bg-transparent px-6 py-4 text-sand transition-[border-color,box-shadow] duration-300 placeholder:text-sand/40 focus:border-gold focus:shadow-[0_0_0_4px_rgba(194,168,120,0.15)] focus:outline-none disabled:opacity-50"
                     />
                     <button
                       type="submit"
                       disabled={loading}
-                      className="shrink-0 rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char transition-colors hover:bg-gold-deep disabled:opacity-50"
+                      className="shrink-0 rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep active:translate-y-0 disabled:opacity-50"
                     >
                       {loading ? 'Joining...' : 'Join the mailing list'}
                     </button>

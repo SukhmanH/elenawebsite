@@ -23,12 +23,14 @@ export function Nav() {
   useEffect(() => {
     if (!open) return
     document.body.style.overflow = 'hidden'
+    window.__lenis?.stop()
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false)
     }
     window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
+      window.__lenis?.start()
       window.removeEventListener('keydown', onKey)
     }
   }, [open])
@@ -54,16 +56,22 @@ export function Nav() {
             {/* LogoBadge removed to avoid duplicate after loading */}
           </Link>
 
+          {/* mix-blend-difference keeps the trigger legible over cream and charcoal alike */}
           <button
             type="button"
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="site-menu"
             aria-label="Open menu"
-            className="group flex h-12 w-12 flex-col items-center justify-center gap-[6px] text-char"
+            className="group flex items-center gap-3 text-white mix-blend-difference"
           >
-            <span className="block h-px w-8 bg-char transition-all group-hover:w-6" />
-            <span className="block h-px w-8 bg-char transition-all group-hover:w-10" />
+            <span className="hidden text-[10px] font-medium uppercase tracking-[0.35em] sm:block">
+              Menu
+            </span>
+            <span className="flex h-12 w-12 flex-col items-center justify-center gap-[6px]">
+              <span className="block h-px w-8 bg-white transition-all duration-300 group-hover:w-5" />
+              <span className="block h-px w-8 bg-white transition-all duration-300 group-hover:w-10" />
+            </span>
           </button>
         </div>
       </header>
@@ -104,7 +112,7 @@ export function Nav() {
                         <Link
                           href={link.href}
                           onClick={() => setOpen(false)}
-                          className="block font-display text-6xl font-medium leading-[1.05] text-gold transition-colors hover:text-cream sm:text-7xl lg:text-8xl"
+                          className="block font-display text-6xl font-medium leading-[1.05] text-gold transition-all duration-300 hover:pl-4 hover:text-cream sm:text-7xl lg:text-8xl"
                         >
                           {link.label}
                         </Link>

@@ -2,6 +2,7 @@ import { Nav } from '@/components/layout/nav'
 import { Footer } from '@/components/layout/footer'
 import { Hero } from '@/components/home/hero'
 import { About } from '@/components/home/about'
+import { Marquee } from '@/components/home/marquee'
 import { Pillars } from '@/components/home/pillars'
 import { Practices } from '@/components/home/practices'
 import { Moments } from '@/components/home/moments'
@@ -15,6 +16,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Marquee />
         <Pillars />
         <Practices />
         <Moments />

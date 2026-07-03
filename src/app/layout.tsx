@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Hanken_Grotesk } from 'next/font/google'
 import './globals.css'
 import { LoadingScreen } from '@/components/ui/loading-screen'
+import { SmoothScroll } from '@/components/ui/smooth-scroll'
 
 const playfair = Playfair_Display({
   variable: '--font-playfair',
@@ -50,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${hanken.variable}`}>
       <body className="min-h-screen bg-sand text-char">
+        <SmoothScroll />
         <LoadingScreen />
         {children}
       </body>
