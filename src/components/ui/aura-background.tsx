@@ -42,20 +42,20 @@ export function AuraBackground() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      {/* warm gold, upper-left */}
+      {/* amber-olive light, upper-left */}
       <motion.div
         style={{ x: goldX, y: goldY }}
-        className="absolute -left-[5%] top-[2%] h-[55vw] w-[55vw] rounded-full bg-[radial-gradient(circle,_rgba(194,168,120,0.85)_0%,_rgba(194,168,120,0)_68%)] blur-3xl"
+        className="absolute -left-[5%] top-[2%] h-[55vw] w-[55vw] rounded-full bg-[radial-gradient(circle,_rgba(179,161,99,0.8)_0%,_rgba(179,161,99,0)_68%)] blur-3xl"
       />
-      {/* charcoal smudge, right of center */}
+      {/* moss smudge, right of center */}
       <motion.div
         style={{ x: charX, y: charY }}
-        className="absolute right-[6%] top-[18%] h-[48vw] w-[48vw] rounded-full bg-[radial-gradient(circle,_rgba(40,36,28,0.5)_0%,_rgba(40,36,28,0)_66%)] blur-3xl"
+        className="absolute right-[6%] top-[18%] h-[48vw] w-[48vw] rounded-full bg-[radial-gradient(circle,_rgba(37,42,25,0.5)_0%,_rgba(37,42,25,0)_66%)] blur-3xl"
       />
-      {/* soft warm wash, lower-left */}
+      {/* soft meadow-green wash, lower-left */}
       <motion.div
         style={{ x: warmX, y: warmY }}
-        className="absolute -bottom-[12%] left-[14%] h-[42vw] w-[42vw] rounded-full bg-[radial-gradient(circle,_rgba(214,184,132,0.55)_0%,_rgba(214,184,132,0)_70%)] blur-3xl"
+        className="absolute -bottom-[12%] left-[14%] h-[42vw] w-[42vw] rounded-full bg-[radial-gradient(circle,_rgba(140,152,96,0.5)_0%,_rgba(140,152,96,0)_70%)] blur-3xl"
       />
     </div>
   )

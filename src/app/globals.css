@@ -2,16 +2,17 @@
 
 /*
   Breath & Balance — editorial, high-contrast.
-  Warm cream paper, charcoal ink, a single muted gold. Big dramatic serif.
+  Meadow palette pulled from Elena's photos: sage-tinted paper, moss-black
+  ink, and one amber-olive accent — the late light in the grass.
 */
 @theme {
-  --color-sand: #ece6da; /* page paper */
-  --color-cream: #f4f0e7; /* lighter panels */
-  --color-char: #15130d;  /* near-black, warm — dark sections + ink */
-  --color-char-2: #211d15;
-  --color-gold: #c2a878;  /* the single accent */
-  --color-gold-deep: #a98a57;
-  --color-stone: #8c8475; /* muted secondary text */
+  --color-sand: #e9e7d8; /* page paper, faint sage cast */
+  --color-cream: #f2f0e3; /* lighter panels */
+  --color-char: #171a10;  /* near-black moss — dark sections + ink */
+  --color-char-2: #222617;
+  --color-gold: #b3a163;  /* the single accent, amber-olive */
+  --color-gold-deep: #8c7a41;
+  --color-stone: #87856d; /* muted secondary text */
 
   --font-display: var(--font-playfair);
   --font-body: var(--font-hanken);
