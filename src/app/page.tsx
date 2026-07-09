@@ -4,6 +4,7 @@ import { Hero } from '@/components/home/hero'
 import { About } from '@/components/home/about'
 import { Marquee } from '@/components/home/marquee'
 import { Pillars } from '@/components/home/pillars'
+import { Meadow } from '@/components/home/meadow'
 import { Moments } from '@/components/home/moments'
 import { MailingList } from '@/components/home/mailing-list'
 
@@ -16,6 +17,7 @@ export default function Home() {
         <About />
         <Marquee />
         <Pillars />
+        <Meadow />
         <Moments />
         <MailingList />
       </main>

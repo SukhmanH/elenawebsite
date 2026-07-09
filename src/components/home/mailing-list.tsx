@@ -56,7 +56,7 @@ export function MailingList() {
           {/* Soft gold aura so the dark panel doesn't read flat */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(194,168,120,0.16),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(179,161,99,0.16),transparent_55%)]"
           />
           <div className="relative grid gap-12 p-10 sm:p-16 md:grid-cols-2 md:items-center md:gap-20">
             <Reveal>
@@ -95,7 +95,7 @@ export function MailingList() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@email.com"
-                      className="w-full rounded-full border border-gold/30 bg-transparent px-6 py-4 text-sand transition-[border-color,box-shadow] duration-300 placeholder:text-sand/40 focus:border-gold focus:shadow-[0_0_0_4px_rgba(194,168,120,0.15)] focus:outline-none disabled:opacity-50"
+                      className="w-full rounded-full border border-gold/30 bg-transparent px-6 py-4 text-sand transition-[border-color,box-shadow] duration-300 placeholder:text-sand/40 focus:border-gold focus:shadow-[0_0_0_4px_rgba(179,161,99,0.15)] focus:outline-none disabled:opacity-50"
                     />
                     <button
                       type="submit"

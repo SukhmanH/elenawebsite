@@ -27,7 +27,7 @@ export function Moments() {
           {CLIPS.map((clip, i) => (
             <Reveal key={clip.src} delay={i * 0.08}>
               <figure className="group mx-auto w-full max-w-[300px] transition-transform duration-500 hover:-translate-y-1.5">
-                <div className="rounded-xl transition-shadow duration-500 group-hover:shadow-[0_24px_60px_-18px_rgba(194,168,120,0.35)]">
+                <div className="rounded-xl transition-shadow duration-500 group-hover:shadow-[0_24px_60px_-18px_rgba(179,161,99,0.35)]">
                   <VideoPlayer src={clip.src} />
                 </div>
                 <figcaption className="mt-5 text-center font-display text-xl italic text-gold">
