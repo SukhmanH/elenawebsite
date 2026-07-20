@@ -7,7 +7,6 @@ import { LogoBadge } from '@/components/ui/logo-badge'
 
 const PRIMARY = [
   { href: '#about', label: 'About' },
-  { href: '#practices', label: 'Practices' },
   { href: '#newsletter', label: 'Mailing list' },
   { href: '#join', label: 'Contact' },
 ]

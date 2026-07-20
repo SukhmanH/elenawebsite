@@ -110,9 +110,6 @@ export function MailingList() {
                       {error}
                     </p>
                   )}
-                  <p className="mt-3 text-sm text-sand/40">
-                    No spam, just a note when there&apos;s something to share.
-                  </p>
                 </form>
               )}
             </Reveal>

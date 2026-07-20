@@ -10,7 +10,7 @@
   --color-char: #15130d;  /* near-black, warm — dark sections + ink */
   --color-char-2: #211d15;
   --color-gold: #c2a878;  /* the single accent */
-  --color-gold-deep: #a98a57;
+  --color-gold-deep: #2d2808;
   --color-stone: #8c8475; /* muted secondary text */
 
   --font-display: var(--font-playfair);
