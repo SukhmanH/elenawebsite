@@ -105,10 +105,6 @@ export function Hero() {
             Join the mailing list
           </Link>
         </motion.div>
-
-        <motion.p variants={item} className="mantra mt-14 text-2xl text-gold-deep md:ml-[6%]">
-          Let all that you do be done in love.
-        </motion.p>
       </motion.div>
 
       {/* Scroll cue — outside the parallax layer so it stays pinned to the fold. */}

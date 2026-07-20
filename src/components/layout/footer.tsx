@@ -31,10 +31,6 @@ export function Footer() {
           <p className="mt-4 text-sm text-sand/40">
             Or say hello on Instagram.
           </p>
-
-          <p className="mantra mt-16 text-3xl text-gold">
-            Let all that you do be done in love.
-          </p>
         </Reveal>
       </div>
 

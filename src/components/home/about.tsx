@@ -104,9 +104,6 @@ export function About() {
               This is where you start.
             </p>
           </div>
-          <p className="mantra mt-10 text-2xl text-gold-deep">
-            Let all that you do be done in love.
-          </p>
         </Reveal>
       </div>
     </section>

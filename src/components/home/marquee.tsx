@@ -1,4 +1,4 @@
-const ITEMS = ['Breath', 'Presence', 'Calm', 'Let all that you do be done in love']
+const ITEMS = ['Breath', 'Presence', 'Calm']
 
 /**
  * Editorial marquee — the three pillars and the mantra drifting by in large
