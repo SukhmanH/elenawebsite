@@ -60,7 +60,7 @@ export function MailingList() {
           <div className="relative grid gap-12 p-10 sm:p-16 md:grid-cols-2 md:items-center md:gap-20">
             <Reveal>
               <p className="text-xs uppercase tracking-[0.4em] text-gold">
-                The membership is coming
+                New offerings are coming
               </p>
               <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
                 Be the first on the mat.

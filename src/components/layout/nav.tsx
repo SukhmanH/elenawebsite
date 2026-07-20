@@ -137,9 +137,6 @@ export function Nav() {
                         </Link>
                       </li>
                     ))}
-                    <li className="pt-4 text-sm text-gold/40">
-                      Membership platform (link to be confirmed)
-                    </li>
                   </ul>
                 </motion.div>
               </div>

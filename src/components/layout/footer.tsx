@@ -18,8 +18,8 @@ export function Footer() {
             Come home to your breath.
           </h2>
           <p className="mx-auto mt-8 max-w-md text-lg leading-relaxed text-sand/65">
-            The membership is on its way. Join the mailing list and I&apos;ll let
-            you know the moment it opens.
+            New offerings and events are on the way. Join the mailing list and
+            I&apos;ll let you know the moment doors open.
           </p>
 
           <Link
