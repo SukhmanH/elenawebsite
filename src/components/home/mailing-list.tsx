@@ -5,11 +5,22 @@ import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
 
 const COMING = [
-  'New guided practices every week',
-  'A full breath, presence & calm library',
-  'Morning, restorative & wind-down sessions',
-  'A few free practices for early subscribers',
-  'First access the moment the doors open',
+  {
+    title: '6-Week Self-Care Programs',
+    body: 'Guided pathways to build sustainable daily self-care habits that actually stick, even with a busy schedule.',
+  },
+  {
+    title: 'Flexible Monthly Membership',
+    body: 'On-demand sessions designed to fit seamlessly into your morning routine or evening wind-down.',
+  },
+  {
+    title: 'In-Person Retreats & Gatherings',
+    body: 'Intimate physical spaces to unplug from screens, connect with like-minded community, and practice in nature.',
+  },
+  {
+    title: 'Live Workshops & Wellness Calls',
+    body: 'Interactive online sessions to deepen your practice, ask questions, and stay aligned.',
+  },
 ]
 
 export function MailingList() {
@@ -52,11 +63,11 @@ export function MailingList() {
   return (
     <section id="newsletter" className="bg-sand py-28 sm:py-36">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="relative overflow-hidden rounded-[2rem] bg-char text-sand">
-          {/* Soft gold aura so the dark panel doesn't read flat */}
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-char/95 text-sand shadow-2xl backdrop-blur-md">
+          {/* Soft aura gradient so the dark panel feels living */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(179,161,99,0.16),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(121,148,126,0.22),transparent_60%)]"
           />
           <div className="relative grid gap-12 p-10 sm:p-16 md:grid-cols-2 md:items-center md:gap-20">
             <Reveal>
@@ -67,8 +78,8 @@ export function MailingList() {
                 Be the first on the mat.
               </h2>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-sand/65">
-                I&apos;m building a daily membership of breath, presence, and
-                calm. Join the mailing list and I&apos;ll let you know the moment
+                I&apos;m building a daily membership of stillness, flow, and
+                rest. Join the mailing list and I&apos;ll let you know the moment
                 it opens, with a few free practices along the way.
               </p>
 
@@ -91,18 +102,18 @@ export function MailingList() {
                       id="ml-email"
                       type="email"
                       required
+                      placeholder="Your email address"
                       disabled={loading}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="you@email.com"
-                      className="w-full rounded-full border border-gold/30 bg-transparent px-6 py-4 text-sand transition-[border-color,box-shadow] duration-300 placeholder:text-sand/40 focus:border-gold focus:shadow-[0_0_0_4px_rgba(179,161,99,0.15)] focus:outline-none disabled:opacity-50"
+                      className="w-full rounded-full border border-white/10 bg-white/[0.03] px-6 py-4 text-sand transition-[border-color,box-shadow] duration-300 placeholder:text-sand/35 focus:border-gold focus:shadow-[0_0_0_4px_rgba(121,148,126,0.18)] focus:outline-none disabled:opacity-50"
                     />
                     <button
                       type="submit"
                       disabled={loading}
-                      className="shrink-0 rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep active:translate-y-0 disabled:opacity-50"
+                      className="shrink-0 rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep hover:shadow-[0_8px_20px_rgba(121,148,126,0.25)] active:translate-y-0 disabled:opacity-50"
                     >
-                      {loading ? 'Joining...' : 'Join the mailing list'}
+                      {loading ? 'Joining...' : 'Keep me updated'}
                     </button>
                   </div>
                   {error && (
@@ -114,23 +125,33 @@ export function MailingList() {
               )}
             </Reveal>
 
+            {/* Right side: What's coming list */}
             <Reveal delay={0.1}>
-              <p className="text-xs uppercase tracking-[0.3em] text-gold/70">
-                What&apos;s coming
-              </p>
-              <ul className="mt-6 space-y-4">
-                {COMING.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-4 border-b border-gold/15 pb-4 text-sand/85"
-                  >
-                    <span aria-hidden className="mt-1 text-gold">
-                      ✦
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="space-y-8 md:pl-6 border-t border-white/10 pt-10 md:border-t-0 md:border-l md:pt-0">
+                <p className="text-xs uppercase tracking-[0.3em] text-gold/70">
+                  What&apos;s coming:
+                </p>
+                <ul className="space-y-6">
+                  {COMING.map((item) => (
+                    <li
+                      key={item.title}
+                      className="flex items-start gap-4 border-b border-white/10 pb-4 text-sand/85"
+                    >
+                      <span aria-hidden className="mt-1 text-gold">
+                        ✦
+                      </span>
+                      <div>
+                        <h3 className="font-display text-xl font-medium text-sand leading-none">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-sand/65 leading-relaxed">
+                          {item.body}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           </div>
         </div>
