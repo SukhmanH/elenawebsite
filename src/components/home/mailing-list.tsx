@@ -5,22 +5,10 @@ import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
 
 const COMING = [
-  {
-    title: '6-Week Self-Care Programs',
-    body: 'Guided pathways to build sustainable daily self-care habits that actually stick, even with a busy schedule.',
-  },
-  {
-    title: 'Flexible Monthly Membership',
-    body: 'On-demand sessions designed to fit seamlessly into your morning routine or evening wind-down.',
-  },
-  {
-    title: 'In-Person Retreats & Gatherings',
-    body: 'Intimate physical spaces to unplug from screens, connect with like-minded community, and practice in nature.',
-  },
-  {
-    title: 'Live Workshops & Wellness Calls',
-    body: 'Interactive online sessions to deepen your practice, ask questions, and stay aligned.',
-  },
+  '6-Week Self-Care Programs',
+  'Flexible Monthly Membership',
+  'In-Person Retreats & Gatherings',
+  'Live Workshops & Wellness Calls',
 ]
 
 export function MailingList() {
@@ -78,9 +66,9 @@ export function MailingList() {
                 Be the first on the mat.
               </h2>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-sand/65">
-                I&apos;m building a daily membership of stillness, flow, and
-                rest. Join the mailing list and I&apos;ll let you know the moment
-                it opens, with a few free practices along the way.
+                Join the mailing list to be the first to hear the moment new
+                programs drop, receive exclusive details about upcoming events
+                and retreats, and get early access before doors open.
               </p>
 
               {done ? (
@@ -134,20 +122,15 @@ export function MailingList() {
                 <ul className="space-y-6">
                   {COMING.map((item) => (
                     <li
-                      key={item.title}
-                      className="flex items-start gap-4 border-b border-white/10 pb-4 text-sand/85"
+                      key={item}
+                      className="flex items-center gap-4 border-b border-white/10 pb-4 text-sand/85"
                     >
-                      <span aria-hidden className="mt-1 text-gold">
+                      <span aria-hidden className="text-gold">
                         ✦
                       </span>
-                      <div>
-                        <h3 className="font-display text-xl font-medium text-sand leading-none">
-                          {item.title}
-                        </h3>
-                        <p className="mt-2 text-sm text-sand/65 leading-relaxed">
-                          {item.body}
-                        </p>
-                      </div>
+                      <h3 className="font-display text-xl font-medium text-sand leading-none">
+                        {item}
+                      </h3>
                     </li>
                   ))}
                 </ul>
