@@ -82,15 +82,26 @@ export function About() {
           </h2>
           <div className="mt-8 space-y-5 text-lg leading-relaxed text-char/70">
             <p>
-              I&apos;m Elena. I teach the way I practice: softly, and in small
-              rooms. No studio with a hundred mats, just a quiet space, a
-              steady breath, and the same handful of movements returned to until
-              they feel like home.
+              Hi, I&apos;m Elena. I&apos;ve been practicing yoga for over 5 years
+              and did my first teacher training in Mexico when I was 18. As
+              someone experiencing chronic illness and persistent pain, yoga became
+              a way I could reshape my life.
             </p>
             <p>
-              The membership is my way of sitting with you each morning,
-              wherever you are. A few minutes of breath before the day asks
-              anything of you.
+              Through movement, breathwork, meditation, and other wellness
+              techniques, I&apos;ve gone from struggling to attend school or work
+              consistently to traveling the world, feeling connected to my mind
+              and body, and living with less pain and more joy.
+            </p>
+            <p>
+              If you&apos;re struggling with pain, stress, or feeling that
+              disconnect, pushing through or dreaming of your next vacation
+              isn&apos;t the solution. A practice that works for{' '}
+              <span className="font-semibold text-gold-deep">you</span> and your
+              life is.
+            </p>
+            <p className="font-medium text-char">
+              This is where you start.
             </p>
           </div>
           <p className="mantra mt-10 text-2xl text-gold-deep">
