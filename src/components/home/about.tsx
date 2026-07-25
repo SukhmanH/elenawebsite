@@ -77,8 +77,8 @@ export function About() {
           <p className="text-xs uppercase tracking-[0.4em] text-gold-deep">
             About me
           </p>
-          <h2 className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] text-char sm:text-5xl lg:text-6xl">
-            Healing isn&apos;t pushing through. It&apos;s coming home to yourself.
+          <h2 className="mt-6 max-w-3xl font-display text-3xl font-medium leading-[1.1] text-char sm:text-4xl lg:text-5xl">
+            From living in pain to learning that healing isn&apos;t pushing through, it&apos;s taking the time for yourself.
           </h2>
           <div className="mt-8 space-y-5 text-lg leading-relaxed text-char/70">
             <p>
