@@ -1,7 +1,7 @@
 'use client'
 
 import { Reveal } from '@/components/ui/reveal'
-import { Mail, Instagram, ArrowUpRight } from 'lucide-react'
+import { Mail, Instagram, Sparkles, ArrowUpRight, ArrowDown } from 'lucide-react'
 
 const CONNECT_LINKS = [
   {
@@ -10,6 +10,7 @@ const CONNECT_LINKS = [
     href: 'mailto:hello@elenacollinsyoga.com',
     icon: Mail,
     description: 'For inquiries about upcoming programs, retreats, or private sessions.',
+    isInternal: false,
   },
   {
     title: 'Yoga & Practice',
@@ -17,6 +18,7 @@ const CONNECT_LINKS = [
     href: 'https://instagram.com/elenacollinsyoga',
     icon: Instagram,
     description: 'Daily practice clips, breathwork techniques, and program updates.',
+    isInternal: false,
   },
   {
     title: 'Personal Journal',
@@ -24,6 +26,15 @@ const CONNECT_LINKS = [
     href: 'https://instagram.com/elena.collinsss',
     icon: Instagram,
     description: 'Life behind the scenes, travel, and personal reflections.',
+    isInternal: false,
+  },
+  {
+    title: 'Mailing List',
+    handle: 'Get early access ✦',
+    href: '#newsletter',
+    icon: Sparkles,
+    description: 'Be the first invited when new programs, retreats, and workshops open.',
+    isInternal: true,
   },
 ]
 
@@ -39,27 +50,35 @@ export function Connect() {
             Let&apos;s connect.
           </h2>
           <p className="mt-5 max-w-xl text-lg text-char/70">
-            Whether you have a question about upcoming offerings, want to inquire about retreats, or simply want to say hello.
+            Whether you have a question about upcoming offerings, want to say hello, or want to join the list for early access.
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CONNECT_LINKS.map((item, i) => {
             const Icon = item.icon
             return (
-              <Reveal key={item.handle} delay={i * 0.1}>
+              <Reveal key={item.handle} delay={i * 0.08}>
                 <a
                   href={item.href}
-                  target={item.href.startsWith('http') ? '_blank' : undefined}
-                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="group relative flex flex-col justify-between rounded-[2rem] border border-char/10 bg-white/60 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:bg-white hover:shadow-xl active:translate-y-0"
+                  target={!item.isInternal && item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={!item.isInternal && item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={`group relative flex h-full flex-col justify-between rounded-[2rem] border p-8 shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl active:translate-y-0 ${
+                    item.isInternal
+                      ? 'border-gold-deep/40 bg-gold/15 hover:bg-gold/25'
+                      : 'border-char/10 bg-white/60 hover:bg-white'
+                  }`}
                 >
                   <div>
                     <div className="flex items-center justify-between text-gold-deep">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 transition-colors duration-500 group-hover:bg-gold-deep group-hover:text-sand">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 transition-colors duration-500 group-hover:bg-gold-deep group-hover:text-sand">
                         <Icon className="h-5 w-5" />
                       </span>
-                      <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      {item.isInternal ? (
+                        <ArrowDown className="h-5 w-5 transition-transform duration-500 group-hover:translate-y-1 text-gold-deep" />
+                      ) : (
+                        <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      )}
                     </div>
                     <h3 className="mt-8 font-display text-2xl font-medium text-char">
                       {item.title}

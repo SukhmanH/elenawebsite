@@ -18,10 +18,10 @@ export default function Home() {
         <About />
         <Marquee />
         <Pillars />
+        <Connect />
         <Meadow />
         <MailingList />
         <Moments />
-        <Connect />
       </main>
       <Footer />
     </>
