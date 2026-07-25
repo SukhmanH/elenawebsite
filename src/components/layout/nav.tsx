@@ -8,11 +8,12 @@ import { LogoBadge } from '@/components/ui/logo-badge'
 const PRIMARY = [
   { href: '#about', label: 'About' },
   { href: '#newsletter', label: 'Mailing list' },
-  { href: '#join', label: 'Contact' },
+  { href: '#connect', label: 'Connect' },
 ]
 
 const SOCIAL = [
   { href: 'https://instagram.com/elenacollinsyoga', label: '@elenacollinsyoga' },
+  { href: 'https://instagram.com/elena.collinsss', label: '@elena.collinsss' },
 ]
 
 export function Nav() {

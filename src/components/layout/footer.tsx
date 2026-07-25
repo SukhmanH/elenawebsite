@@ -4,6 +4,7 @@ import { LogoBadge } from '@/components/ui/logo-badge'
 
 const INSTAGRAM = [
   { handle: '@elenacollinsyoga', href: 'https://instagram.com/elenacollinsyoga' },
+  { handle: '@elena.collinsss', href: 'https://instagram.com/elena.collinsss' },
 ]
 
 export function Footer() {

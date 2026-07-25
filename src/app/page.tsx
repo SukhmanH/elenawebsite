@@ -7,6 +7,7 @@ import { Pillars } from '@/components/home/pillars'
 import { Meadow } from '@/components/home/meadow'
 import { Moments } from '@/components/home/moments'
 import { MailingList } from '@/components/home/mailing-list'
+import { Connect } from '@/components/home/connect'
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Meadow />
         <MailingList />
         <Moments />
+        <Connect />
       </main>
       <Footer />
     </>
