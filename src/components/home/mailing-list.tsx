@@ -63,12 +63,10 @@ export function MailingList() {
                 New offerings are coming
               </p>
               <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
-                Be the first invited.
+                I&apos;m so glad you&apos;re in this space.
               </h2>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-sand/65">
-                Join the mailing list to be the first to hear the moment new
-                programs drop, receive exclusive details about upcoming events
-                and retreats, and get early access before doors open.
+                Workshops, programs, retreats, and classes are all on their way, designed for your real life, no matter where in the world you&apos;re joining from or what your schedule looks like. Be the first invited.
               </p>
 
               {done ? (
