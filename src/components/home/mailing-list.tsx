@@ -59,11 +59,16 @@ export function MailingList() {
           />
           <div className="relative grid gap-12 p-10 sm:p-16 md:grid-cols-2 md:items-center md:gap-20">
             <Reveal>
-              <h2 className="font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
-                I&apos;m so glad you&apos;re in this space.
+              <p className="text-xs uppercase tracking-[0.4em] text-gold">
+                New offerings are coming
+              </p>
+              <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
+                Be the first invited.
               </h2>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-sand/65">
-                Workshops, programs, retreats, and classes are all on their way, designed for your real life, no matter where in the world you&apos;re joining from or what your schedule looks like. Be the first invited.
+                Join the mailing list to be the first to hear the moment new
+                programs drop, receive exclusive details about upcoming events
+                and retreats, and get early access before doors open.
               </p>
 
               {done ? (
