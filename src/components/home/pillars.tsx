@@ -23,8 +23,8 @@ export function Pillars() {
           <p className="text-xs uppercase tracking-[0.4em] text-gold">
             What&apos;s coming
           </p>
-          <h2 className="mt-6 max-w-4xl font-display text-3xl font-medium leading-[1.1] text-sand sm:text-4xl lg:text-5xl">
-            Elevate your practice with exclusive upcoming programs, retreats, and workshops. Your next step toward presence, strength, and ease.
+          <h2 className="mt-6 max-w-3xl font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
+            Upcoming programs and retreats, designed to meet you where you are.
           </h2>
         </Reveal>
 
