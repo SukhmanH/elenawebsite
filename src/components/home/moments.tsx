@@ -4,9 +4,9 @@ import { Reveal } from '@/components/ui/reveal'
 import VideoPlayer from '@/components/ui/video-player'
 
 const CLIPS = [
-  { src: '/practice-3.mp4', caption: 'Mind' },
-  { src: '/practice-2.mp4', caption: 'Body' },
-  { src: '/practice-1.mp4', caption: 'Breath' },
+  { src: '/practice-3.mp4', caption: 'Breath' },
+  { src: '/practice-2.mp4', caption: 'Mind' },
+  { src: '/practice-1.mp4', caption: 'Body' },
 ]
 
 export function Moments() {
