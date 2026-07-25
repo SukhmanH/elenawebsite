@@ -77,6 +77,9 @@ export function About() {
           <p className="text-xs uppercase tracking-[0.4em] text-gold-deep">
             About me
           </p>
+          <h2 className="mt-6 max-w-2xl font-display text-3xl font-medium leading-[1.1] text-char sm:text-4xl lg:text-5xl">
+            From living in pain to feeling connected, strong, and free. Healing isn&apos;t pushing through, it&apos;s coming home to yourself.
+          </h2>
           <div className="mt-8 space-y-5 text-lg leading-relaxed text-char/70">
             <p>
               Hi, I&apos;m Elena. I&apos;ve been practicing yoga for over 5 years
