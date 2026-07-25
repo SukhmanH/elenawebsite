@@ -85,7 +85,7 @@ export function Hero() {
           variants={item}
           className="mt-8 max-w-md text-lg text-char/70 md:ml-[6%]"
         >
-          Yoga &amp; daily breath with{' '}
+          Yoga with{' '}
           <Link href="#about" className="text-char underline decoration-gold decoration-2 underline-offset-4 hover:decoration-gold-deep">
             Elena Collins
           </Link>
