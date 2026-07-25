@@ -13,9 +13,9 @@ import { AuraBackground } from '@/components/ui/aura-background'
 import { onIntroDone } from '@/lib/intro-state'
 
 const WORDS = [
-  { text: 'Breath', shift: 'ml-0', italic: false },
-  { text: 'Presence', shift: 'md:ml-[14%]', italic: true },
-  { text: 'Calm', shift: 'md:ml-[5%]', italic: false },
+  { text: 'Mind', shift: 'ml-0', italic: false },
+  { text: 'Body', shift: 'md:ml-[14%]', italic: true },
+  { text: 'Breath', shift: 'md:ml-[5%]', italic: false },
 ]
 
 export function Hero() {
