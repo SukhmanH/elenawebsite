@@ -63,7 +63,7 @@ export function MailingList() {
                 New offerings are coming
               </p>
               <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
-                Be the first on the mat.
+                Be the first invited.
               </h2>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-sand/65">
                 Join the mailing list to be the first to hear the moment new
