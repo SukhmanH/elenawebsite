@@ -82,7 +82,7 @@ export function About() {
           </h2>
           <div className="mt-8 space-y-5 text-lg leading-relaxed text-char/70">
             <p>
-              Hi, I&apos;m Elena. I&apos;ve been practicing yoga for over 5 years
+              Hi, I&apos;m Elena! I&apos;ve been practicing yoga for over 5 years
               and did my first teacher training in Mexico when I was 18. As
               someone experiencing chronic illness and persistent pain, yoga became
               a way I could reshape my life.
