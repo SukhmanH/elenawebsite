@@ -2,16 +2,16 @@ import { Reveal } from '@/components/ui/reveal'
 
 const PILLARS = [
   {
-    name: 'Breath',
-    body: 'Simple breathwork to steady the nervous system: extended exhales, soft holds, the work you can feel in minutes.',
+    name: 'Upcoming 6-Week Online Program',
+    body: 'Guided, immersive programs designed to ground your daily breath and movement, building a steady practice week by week.',
   },
   {
-    name: 'Presence',
-    body: 'Short, grounding movement to arrive in the body and out of the day’s noise. Slow flows, no rush, no performance.',
+    name: 'In-Person Retreats & Events',
+    body: 'Intimate, slow-paced gatherings to unwind, reset, and share quiet practice in beautiful spaces together.',
   },
   {
-    name: 'Calm',
-    body: 'Restorative practices and wind-downs to carry the quiet with you into sleep, into work, and into the next breath.',
+    name: 'Online Workshops & Calls',
+    body: 'Live wellness calls, breathwork deep-dives, and interactive sessions to support your practice wherever you are.',
   },
 ]
 
@@ -24,7 +24,7 @@ export function Pillars() {
             What&apos;s coming
           </p>
           <h2 className="mt-6 max-w-3xl font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
-            Three threads, woven through every practice.
+            Three offerings on the horizon.
           </h2>
         </Reveal>
 

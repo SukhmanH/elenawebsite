@@ -97,7 +97,7 @@ export function About() {
               If you&apos;re struggling with pain, stress, or feeling that
               disconnect, pushing through or dreaming of your next vacation
               isn&apos;t the solution. A practice that works for{' '}
-              <span className="font-semibold text-gold-deep">you</span> and your
+              <em className="italic font-medium text-gold-deep">you</em> and your
               life is.
             </p>
             <p className="font-medium text-char">

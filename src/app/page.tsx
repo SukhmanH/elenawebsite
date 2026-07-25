@@ -18,8 +18,8 @@ export default function Home() {
         <Marquee />
         <Pillars />
         <Meadow />
-        <Moments />
         <MailingList />
+        <Moments />
       </main>
       <Footer />
     </>

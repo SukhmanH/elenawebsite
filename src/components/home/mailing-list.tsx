@@ -5,10 +5,10 @@ import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
 
 const COMING = [
-  '6-Week Self-Care Programs',
-  'Flexible Monthly Membership',
-  'In-Person Retreats & Gatherings',
-  'Live Workshops & Wellness Calls',
+  'Upcoming 6-Week Online Program',
+  'In-Person Retreats & Events',
+  'Online Workshops & Calls',
+  'Monthly Membership',
 ]
 
 export function MailingList() {

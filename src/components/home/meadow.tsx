@@ -46,20 +46,9 @@ function Photo({
 
 export function Meadow() {
   return (
-    <section id="stillness" className="bg-cream py-28 sm:py-36">
+    <section id="stillness" className="bg-cream py-20 sm:py-28">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <Reveal>
-          <p className="text-xs uppercase tracking-[0.4em] text-gold-deep">In stillness</p>
-          <h2 className="mt-6 max-w-3xl font-display text-4xl font-medium leading-[1.05] text-char sm:text-5xl lg:text-6xl">
-            The quiet between breaths.
-          </h2>
-          <p className="mt-5 max-w-xl text-char/60">
-            A spring afternoon in the meadow — where most of this practice was
-            found, and where it always returns.
-          </p>
-        </Reveal>
-
-        <div className="mt-16 space-y-6 md:space-y-10">
+        <div className="space-y-6 md:space-y-10">
           {/* Row one — tall portrait leads, landscape rests beside it */}
           <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
             <Reveal className="md:col-span-5">
@@ -102,12 +91,6 @@ export function Meadow() {
             </Reveal>
           </div>
         </div>
-
-        <Reveal delay={0.1}>
-          <p className="mantra mt-14 text-center text-2xl text-gold-deep">
-            Stillness is also practice.
-          </p>
-        </Reveal>
       </div>
     </section>
   )

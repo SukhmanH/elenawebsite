@@ -15,11 +15,10 @@ export function Footer() {
             <LogoBadge withRing={false} className="h-16 w-16 text-gold" />
           </span>
           <h2 className="mx-auto mt-10 max-w-3xl font-display text-5xl font-medium leading-[1.02] text-sand sm:text-6xl lg:text-7xl">
-            Come home to your breath.
+            I&apos;m so glad you&apos;re in this space.
           </h2>
-          <p className="mx-auto mt-8 max-w-md text-lg leading-relaxed text-sand/65">
-            New offerings and events are on the way. Join the mailing list and
-            I&apos;ll let you know the moment doors open.
+          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-sand/65">
+            Workshops, programs, retreats, and classes are all on their way, designed for your real life, no matter where in the world you&apos;re joining from or what your schedule looks like. Be the first invited.
           </p>
 
           <Link
@@ -28,9 +27,6 @@ export function Footer() {
           >
             Join the mailing list
           </Link>
-          <p className="mt-4 text-sm text-sand/40">
-            Or say hello on Instagram.
-          </p>
         </Reveal>
       </div>
 

@@ -2,7 +2,7 @@ Design Brief — Breath & Balance | Yoga with Elena
 
 I want to make a site that clones https://yoga-by-nina.webflow.io/
 
-A landing site for Elena Collins, a yoga teacher selling a membership built around daily practices of breath, presence, and calm. Small, personal, intimate brand (not a big studio). Her recurring mantra: "Let all that you do be done in love." The white heart 🤍 runs through her brand — soft, light, airy.
+A landing site for Elena Collins, a yoga teacher selling a membership built around daily practices of breath, presence, and calm. Small, personal, intimate brand (not a big studio). The white heart 🤍 runs through her brand — soft, light, airy.
 
 Reference for layout/feel only: yoga-by-nina.webflow.io (single-page, editorial, lots of whitespace, membership-focused). Do not copy its palette. Most yoga sites — including that one — land on warm cream + high-contrast serif + terracotta accent. Avoid that default. Ground the design in the one thing that's actually specific here: breath.
 
