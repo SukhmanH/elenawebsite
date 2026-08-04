@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Breath & Balance',
   },
   description:
-    'A daily practice of mind, body, and breath with Elena Collins.',
+    'A daily practice to restore, reconnect, and thrive with Elena Collins.',
   metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     siteName: 'Breath & Balance',
     title: 'Breath & Balance | Yoga with Elena',
     description:
-      'A daily practice of mind, body, and breath with Elena Collins.',
+      'A daily practice to restore, reconnect, and thrive with Elena Collins.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Breath & Balance | Yoga with Elena',
     description:
-      'A daily practice of mind, body, and breath with Elena Collins.',
+      'A daily practice to restore, reconnect, and thrive with Elena Collins.',
   },
 }
 

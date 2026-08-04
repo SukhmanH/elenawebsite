@@ -1,4 +1,4 @@
-const ITEMS = ['Mind', 'Body', 'Breath']
+const ITEMS = ['Restore', 'Reconnect', 'Thrive']
 
 /**
  * Editorial marquee — the three pillars and the mantra drifting by in large
