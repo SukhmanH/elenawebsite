@@ -3,32 +3,26 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
-import { Calendar, Sparkles, CheckCircle2, ArrowRight, Mail, Video, BookOpen, HeartPulse, Users } from 'lucide-react'
+import { Sparkles, CheckCircle2, ArrowRight, HeartPulse, ShieldCheck, Sun, MessageSquareQuote } from 'lucide-react'
+import Image from 'next/image'
 
-const INCLUDED_ITEMS = [
-  {
-    icon: Video,
-    title: 'Weekly Yoga Videos',
-    desc: 'At-your-own-pace guided practice videos to flow whenever your schedule allows.',
-  },
-  {
-    icon: Users,
-    title: 'Live Calls',
-    desc: 'Interactive group calls to move together, ask questions, and stay connected.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Journaling Prompts',
-    desc: 'Thoughtful weekly prompts designed to foster self-reflection and mental space.',
-  },
+const TRANSFORMATIONS = [
   {
     icon: HeartPulse,
-    title: 'Habits Built to Reset',
-    desc: 'Daily grounding rituals and sustainable habits to help you reset before the holidays.',
+    title: 'Release Physical & Mental Tension',
+    desc: 'Soften end-of-year stress, chronic tightness, and burnout through daily restorative movement and guided breathwork.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Cultivate Daily Calming Rituals',
+    desc: 'Establish steady, simple habits that help you regulate your nervous system and feel centered every day.',
+  },
+  {
+    icon: Sun,
+    title: 'Enter the Holidays Rooted & Rested',
+    desc: 'Rather than running on empty when December arrives, step into the season feeling deeply connected, calm, and present.',
   },
 ]
-
-import Image from 'next/image'
 
 export function ProgramPresale() {
   const [email, setEmail] = useState('')
@@ -58,10 +52,10 @@ export function ProgramPresale() {
         throw new Error(data.error || 'Something went wrong. Please try again.')
       }
 
-      setMessage(data.message || "You're on the presale list 🤍 Full program details will be sent to your inbox shortly.")
+      setMessage(data.message || "Message received! I'll email you all the presale details & early access link shortly 🤍 — Elena")
       setDone(true)
     } catch (err: any) {
-      setError(err.message || 'Unable to sign up right now. Please try again.')
+      setError(err.message || 'Unable to send message right now. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -87,16 +81,16 @@ export function ProgramPresale() {
           </div>
 
           <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-7xl max-w-4xl">
-            Upcoming Reset Program
+            A Space to Reset &amp; Ground Before the Holidays
           </h2>
 
           <p className="mt-6 font-display text-xl sm:text-2xl italic text-gold/90 max-w-3xl">
-            Starting November 8th and ending mid-December, before the holidays hit.
+            Starting November 8th and ending mid-December, before the holiday rush hits.
           </p>
         </Reveal>
 
         <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:items-start">
-          {/* Main Info Box */}
+          {/* Main Info & Transformation Focus */}
           <Reveal className="lg:col-span-7">
             {/* Elena Program Image Banner */}
             <div className="relative mb-8 aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl">
@@ -112,32 +106,34 @@ export function ProgramPresale() {
 
             <div className="space-y-6 text-lg leading-relaxed text-sand/80">
               <p>
-                Our upcoming program begins on <strong className="text-gold font-semibold">November 8th</strong> and wraps up in <strong className="text-gold font-semibold">mid-December</strong> — intentionally timed so you can ground yourself, establish restorative habits, and reset before the holiday season begins.
+                Before the end-of-year rush sets in, this program gives you dedicated space to pause, release accumulated physical and mental tension, and come back to yourself.
               </p>
               <p>
-                Presale enrollment is currently open! Join the presale list to receive early access, exclusive pricing, and full program details sent directly to your email.
+                Full details and weekly structure will be delivered straight to your welcome email — so right now, all you need to do is reserve your spot on the presale list.
               </p>
             </div>
 
-            {/* What's Included Grid */}
+            {/* What this program does for you */}
             <div className="mt-10">
               <h3 className="text-xs uppercase tracking-[0.3em] font-medium text-gold mb-6">
-                What&apos;s Included in the Program:
+                What This Program Does For You:
               </h3>
 
-              <div className="grid gap-6 sm:grid-cols-2">
-                {INCLUDED_ITEMS.map((item) => {
+              <div className="grid gap-6 sm:grid-cols-1">
+                {TRANSFORMATIONS.map((item) => {
                   const Icon = item.icon
                   return (
                     <div
                       key={item.title}
-                      className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/30 hover:bg-white/[0.05]"
+                      className="flex items-start gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/30 hover:bg-white/[0.05]"
                     >
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/20 text-gold">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/20 text-gold">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <h4 className="mt-4 font-display text-xl font-medium text-sand">{item.title}</h4>
-                      <p className="mt-2 text-sm text-sand/65 leading-relaxed">{item.desc}</p>
+                      <div>
+                        <h4 className="font-display text-xl font-medium text-sand">{item.title}</h4>
+                        <p className="mt-1.5 text-sm text-sand/70 leading-relaxed">{item.desc}</p>
+                      </div>
                     </div>
                   )
                 })}
@@ -145,19 +141,23 @@ export function ProgramPresale() {
             </div>
           </Reveal>
 
-          {/* Email Access Card */}
+          {/* Personalized Message Request Card */}
           <Reveal delay={0.15} className="lg:col-span-5">
             <div className="relative rounded-3xl border border-gold/30 bg-gradient-to-b from-char-2/90 to-char/90 p-8 sm:p-10 shadow-2xl backdrop-blur-md">
               <div className="flex items-center gap-3 text-gold">
-                <Mail className="h-6 w-6" />
-                <span className="text-xs uppercase tracking-[0.3em] font-medium">Get Presale Details</span>
+                <MessageSquareQuote className="h-6 w-6" />
+                <span className="text-xs uppercase tracking-[0.3em] font-medium">Request Presale Info</span>
               </div>
 
-              <h3 className="mt-4 font-display text-2xl font-medium text-sand sm:text-3xl">
-                Receive Details &amp; Presale Access
-              </h3>
-              <p className="mt-3 text-sm text-sand/70 leading-relaxed">
-                Enter your email address to get an email with the complete program breakdown, live call schedule, and presale access code.
+              {/* Note preview box */}
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+                <p className="font-display text-lg italic leading-relaxed text-sand/90">
+                  &ldquo;Hey Elena! Please send me the presale info &amp; early access details for the November 8th Reset program 🤍&rdquo;
+                </p>
+              </div>
+
+              <p className="mt-4 text-xs text-sand/65">
+                Enter your email address below to send this request directly and receive the complete program breakdown in your inbox.
               </p>
 
               {done ? (
@@ -168,15 +168,15 @@ export function ProgramPresale() {
                   className="mt-8 rounded-2xl border border-gold/30 bg-gold/10 p-6 text-center"
                 >
                   <CheckCircle2 className="mx-auto h-10 w-10 text-gold" />
-                  <p className="mt-4 font-display text-xl italic text-gold">
+                  <p className="mt-4 font-display text-lg italic text-gold leading-relaxed">
                     {message}
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={onSubmit} className="mt-8 space-y-4">
+                <form onSubmit={onSubmit} className="mt-6 space-y-4">
                   <div>
                     <label htmlFor="presale-email" className="sr-only">
-                      Email address
+                      Your email address
                     </label>
                     <input
                       id="presale-email"
@@ -195,7 +195,7 @@ export function ProgramPresale() {
                     disabled={loading}
                     className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gold px-6 py-4 font-medium tracking-wide text-char shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep hover:shadow-xl active:translate-y-0 disabled:opacity-50"
                   >
-                    <span>{loading ? 'Sending details...' : 'Get Presale Info via Email'}</span>
+                    <span>{loading ? 'Sending request...' : 'Send me the presale info ✦'}</span>
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
 
@@ -209,7 +209,7 @@ export function ProgramPresale() {
 
               <div className="mt-8 border-t border-white/10 pt-6 text-center">
                 <p className="text-xs text-sand/50">
-                  Have questions? Email directly at{' '}
+                  Prefer to send a direct message? Email Elena at{' '}
                   <a href="mailto:hello@elenacollinsyoga.com" className="text-gold underline hover:text-sand">
                     hello@elenacollinsyoga.com
                   </a>
