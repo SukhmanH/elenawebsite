@@ -42,20 +42,20 @@ export function AuraBackground() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      {/* amber-olive light, upper-left */}
+      {/* warm terracotta glow, upper-left */}
       <motion.div
         style={{ x: goldX, y: goldY }}
-        className="absolute -left-[5%] top-[2%] h-[55vw] w-[55vw] rounded-full bg-[radial-gradient(circle,_rgba(179,161,99,0.8)_0%,_rgba(179,161,99,0)_68%)] blur-3xl"
+        className="absolute -left-[5%] top-[2%] h-[55vw] w-[55vw] rounded-full bg-[radial-gradient(circle,_rgba(200,138,104,0.35)_0%,_rgba(200,138,104,0)_68%)] blur-3xl"
       />
-      {/* moss smudge, right of center */}
+      {/* forest moss smudge, right of center */}
       <motion.div
         style={{ x: charX, y: charY }}
-        className="absolute right-[6%] top-[18%] h-[48vw] w-[48vw] rounded-full bg-[radial-gradient(circle,_rgba(37,42,25,0.5)_0%,_rgba(37,42,25,0)_66%)] blur-3xl"
+        className="absolute right-[6%] top-[18%] h-[48vw] w-[48vw] rounded-full bg-[radial-gradient(circle,_rgba(36,46,35,0.4)_0%,_rgba(36,46,35,0)_66%)] blur-3xl"
       />
-      {/* soft meadow-green wash, lower-left */}
+      {/* soft living sage wash, lower-left */}
       <motion.div
         style={{ x: warmX, y: warmY }}
-        className="absolute -bottom-[12%] left-[14%] h-[42vw] w-[42vw] rounded-full bg-[radial-gradient(circle,_rgba(140,152,96,0.5)_0%,_rgba(140,152,96,0)_70%)] blur-3xl"
+        className="absolute -bottom-[12%] left-[14%] h-[42vw] w-[42vw] rounded-full bg-[radial-gradient(circle,_rgba(138,154,133,0.35)_0%,_rgba(138,154,133,0)_70%)] blur-3xl"
       />
     </div>
   )

@@ -6,13 +6,14 @@
   ink, and one amber-olive accent — the late light in the grass.
 */
 @theme {
-  --color-sand: #e9e7d8; /* page paper, faint sage cast */
-  --color-cream: #f2f0e3; /* lighter panels */
-  --color-char: #171a10;  /* near-black moss — dark sections + ink */
-  --color-char-2: #222617;
-  --color-gold: #b3a163;  /* the single accent, amber-olive */
-  --color-gold-deep: #8c7a41;
-  --color-stone: #87856d; /* muted secondary text */
+  --color-sand: #F6F3EA; /* warm natural linen paper matching Elena's dress & sunlight */
+  --color-cream: #EFECE1; /* soft warm panel background */
+  --color-char: #1B231A;  /* rich deep forest moss green — dark sections + primary ink */
+  --color-char-2: #242E23; /* elevated forest moss panel */
+  --color-gold: #C88A68;  /* warm glowing terracotta-amber accent matching lip & sun flare */
+  --color-gold-deep: #A46B4B; /* deep terracotta bronze */
+  --color-sage: #8A9A85;  /* natural living meadow sage */
+  --color-stone: #798675; /* muted sage-stone text */
 
   --font-display: var(--font-playfair);
   --font-body: var(--font-hanken);

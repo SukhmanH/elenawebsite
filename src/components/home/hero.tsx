@@ -112,18 +112,18 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Featured Editorial Photo Card in Hero */}
-          <motion.div variants={item} className="hidden lg:block lg:col-span-4">
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl transition-transform duration-700 hover:scale-[1.02]">
+          {/* Featured Editorial Landscape Photo in Hero */}
+          <motion.div variants={item} className="lg:col-span-5">
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl transition-transform duration-700 hover:scale-[1.01]">
               <Image
-                src="/elena-photo-17.jpg"
-                alt="Elena Collins standing portrait"
+                src="/elena-photo-18.jpg"
+                alt="Elena Collins lying in grass meadow landscape"
                 fill
                 priority
-                sizes="30vw"
-                className="object-cover object-[50%_25%]"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover object-[50%_40%]"
               />
-              <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/30 via-transparent to-transparent" />
+              <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/25 via-transparent to-transparent" />
             </div>
           </motion.div>
         </div>
