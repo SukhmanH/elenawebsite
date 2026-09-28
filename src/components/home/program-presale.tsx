@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
-import { Sparkles, CheckCircle2, ArrowRight, HeartPulse, ShieldCheck, Sun, MessageSquareQuote } from 'lucide-react'
+import { Sparkles, CheckCircle2, ArrowRight, HeartPulse, ShieldCheck, Sun, MessageSquareQuote, Pencil } from 'lucide-react'
 import Image from 'next/image'
 
 const TRANSFORMATIONS = [
@@ -26,6 +26,9 @@ const TRANSFORMATIONS = [
 
 export function ProgramPresale() {
   const [email, setEmail] = useState('')
+  const [userNote, setUserNote] = useState(
+    'Hey Elena! Please send me the presale info & early access details for the November 8th Reset program 🤍'
+  )
   const [done, setDone] = useState(false)
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
@@ -43,7 +46,7 @@ export function ProgramPresale() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, note: userNote }),
       })
 
       const data = await res.json()
@@ -144,21 +147,15 @@ export function ProgramPresale() {
           {/* Personalized Message Request Card */}
           <Reveal delay={0.15} className="lg:col-span-5">
             <div className="relative rounded-3xl border border-gold/30 bg-gradient-to-b from-char-2/90 to-char/90 p-8 sm:p-10 shadow-2xl backdrop-blur-md">
-              <div className="flex items-center gap-3 text-gold">
-                <MessageSquareQuote className="h-6 w-6" />
-                <span className="text-xs uppercase tracking-[0.3em] font-medium">Request Presale Info</span>
+              <div className="flex items-center justify-between gap-3 text-gold">
+                <div className="flex items-center gap-2.5">
+                  <MessageSquareQuote className="h-6 w-6" />
+                  <span className="text-xs uppercase tracking-[0.3em] font-medium">Request Presale Info</span>
+                </div>
+                <span className="flex items-center gap-1 text-[11px] font-medium uppercase tracking-wider text-gold/80 bg-gold/10 border border-gold/25 px-2.5 py-0.5 rounded-full">
+                  <Pencil className="h-3 w-3" /> Click to Edit
+                </span>
               </div>
-
-              {/* Note preview box */}
-              <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
-                <p className="font-display text-lg italic leading-relaxed text-sand/90">
-                  &ldquo;Hey Elena! Please send me the presale info &amp; early access details for the November 8th Reset program 🤍&rdquo;
-                </p>
-              </div>
-
-              <p className="mt-4 text-xs text-sand/65">
-                Enter your email address below to send this request directly and receive the complete program breakdown in your inbox.
-              </p>
 
               {done ? (
                 <motion.div
@@ -174,6 +171,27 @@ export function ProgramPresale() {
                 </motion.div>
               ) : (
                 <form onSubmit={onSubmit} className="mt-6 space-y-4">
+                  {/* Editable Note Box */}
+                  <div className="group relative rounded-2xl border border-white/20 bg-white/[0.04] p-5 backdrop-blur-sm transition-all duration-300 focus-within:border-gold focus-within:bg-white/[0.07] focus-within:shadow-[0_0_20px_rgba(198,142,124,0.15)] hover:border-gold/50">
+                    <label htmlFor="presale-note" className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] font-medium text-gold/80 mb-2">
+                      <span>Your Message to Elena:</span>
+                      <span className="text-[10px] text-sand/50 normal-case tracking-normal">Editable note</span>
+                    </label>
+                    <textarea
+                      id="presale-note"
+                      rows={3}
+                      value={userNote}
+                      onChange={(e) => setUserNote(e.target.value)}
+                      disabled={loading}
+                      placeholder="Write your note to Elena..."
+                      className="w-full resize-none bg-transparent font-display text-lg italic leading-relaxed text-sand/90 placeholder:text-sand/40 focus:outline-none disabled:opacity-50"
+                    />
+                  </div>
+
+                  <p className="text-xs text-sand/65 px-1">
+                    Enter your email address below to send this request directly to Elena and receive the full program breakdown in your inbox.
+                  </p>
+
                   <div>
                     <label htmlFor="presale-email" className="sr-only">
                       Your email address
