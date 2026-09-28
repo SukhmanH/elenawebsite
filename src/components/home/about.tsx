@@ -27,7 +27,7 @@ export function About() {
     <section id="about" className="bg-sand py-28 sm:py-36">
       <div className="mx-auto grid max-w-[1400px] items-center gap-14 px-6 sm:px-10 md:grid-cols-2 md:gap-20">
         <Reveal>
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] bg-char">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] sm:rounded-[2.25rem] border border-char/10 bg-char shadow-xl">
             <AnimatePresence>
               <motion.div
                 key={index}
@@ -46,7 +46,7 @@ export function About() {
                   alt={IMAGES[index].alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-[50%_30%]"
+                  className="object-cover object-[50%_25%]"
                   priority={index === 0}
                 />
               </motion.div>

@@ -99,13 +99,13 @@ export function ProgramPresale() {
           {/* Main Info Box */}
           <Reveal className="lg:col-span-7">
             {/* Elena Program Image Banner */}
-            <div className="relative mb-8 h-72 w-full overflow-hidden rounded-3xl border border-white/10 shadow-xl">
+            <div className="relative mb-8 aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl">
               <Image
                 src="/elena-photo-11.jpg"
                 alt="Elena Collins portrait"
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover object-[50%_40%]"
+                className="object-cover object-[50%_35%]"
               />
               <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/80 via-char/20 to-transparent" />
             </div>

@@ -69,14 +69,14 @@ export function Hero() {
         style={{ y: contentY, opacity: contentOpacity }}
         className="relative mx-auto w-full max-w-[1600px] px-6 pt-36 pb-20 sm:px-10 sm:pt-32"
       >
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-8">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center md:gap-14">
+          <div className="lg:col-span-7">
             <h1 className="font-display font-medium leading-[0.85] tracking-[-0.02em] text-char">
               {WORDS.map((w) => (
                 <span key={w.text} className={`block overflow-hidden pb-[0.06em] ${w.shift}`}>
                   <motion.span
                     variants={word}
-                    className={`block pr-[0.08em] text-[14vw] sm:text-[10vw] lg:text-[7rem] xl:text-[8rem] ${
+                    className={`block pr-[0.08em] text-[13vw] sm:text-[9.5vw] lg:text-[6.5rem] xl:text-[7.5rem] ${
                       w.italic ? 'italic text-gold-deep' : ''
                     }`}
                   >
@@ -113,14 +113,14 @@ export function Hero() {
           </div>
 
           {/* Featured Editorial Landscape Photo in Hero */}
-          <motion.div variants={item} className="lg:col-span-5">
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl transition-transform duration-700 hover:scale-[1.01]">
+          <motion.div variants={item} className="mt-6 lg:mt-0 lg:col-span-5">
+            <div className="relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-[4/3] w-full overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl transition-transform duration-700 hover:scale-[1.01]">
               <Image
                 src="/elena-photo-18.jpg"
                 alt="Elena Collins lying in grass meadow landscape"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 45vw"
+                sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover object-[50%_40%]"
               />
               <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/25 via-transparent to-transparent" />
