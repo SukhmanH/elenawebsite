@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
 
 const COMING = [
-  'Upcoming Radiant Reset Program (Nov 8th – Mid-Dec)',
+  'Upcoming Radiant Reset Program (Nov 8th to Mid-Dec)',
   'In-Person Retreats & Events',
   'Online Workshops & Calls',
   'Monthly Membership',

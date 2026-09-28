@@ -85,7 +85,7 @@ export function ProgramPresale() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-gold"></span>
             </span>
-            <span>Radiant Reset Presale • Nov 8th – Mid-December</span>
+            <span>Radiant Reset Presale • Nov 8th to Mid-December</span>
           </div>
 
           <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-7xl max-w-4xl">
@@ -117,7 +117,7 @@ export function ProgramPresale() {
                 Before the end-of-year rush sets in, this program gives you dedicated space to pause, release accumulated physical and mental tension, and come back to yourself.
               </p>
               <p>
-                Full details and weekly structure will be delivered straight to your welcome email — so right now, all you need to do is reserve your spot on the presale list.
+                Full details and weekly structure will be delivered straight to your welcome email, so right now, all you need to do is reserve your spot on the presale list.
               </p>
             </div>
 
