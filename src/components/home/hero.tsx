@@ -13,9 +13,10 @@ import { AuraBackground } from '@/components/ui/aura-background'
 import { onIntroDone } from '@/lib/intro-state'
 
 const WORDS = [
-  { text: 'Restore', shift: 'ml-0', italic: false },
-  { text: 'Reconnect', shift: 'md:ml-[14%]', italic: true },
-  { text: 'Thrive', shift: 'md:ml-[5%]', italic: false },
+  { text: 'Reset', shift: 'ml-0', italic: false },
+  { text: 'Reconnect', shift: 'md:ml-[8%]', italic: true },
+  { text: 'Restore', shift: 'md:ml-[4%]', italic: false },
+  { text: 'Thrive', shift: 'md:ml-[12%]', italic: true },
 ]
 
 export function Hero() {
@@ -71,7 +72,7 @@ export function Hero() {
             <span key={w.text} className={`block overflow-hidden pb-[0.06em] ${w.shift}`}>
               <motion.span
                 variants={word}
-                className={`block pr-[0.08em] text-[17vw] sm:text-[13vw] lg:text-[10rem] xl:text-[11rem] ${
+                className={`block pr-[0.08em] text-[14vw] sm:text-[10vw] lg:text-[7.5rem] xl:text-[8.5rem] ${
                   w.italic ? 'italic text-gold-deep' : ''
                 }`}
               >
@@ -93,16 +94,16 @@ export function Hero() {
 
         <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4 md:ml-[6%]">
           <Link
+            href="#program"
+            className="rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep active:translate-y-0"
+          >
+            Nov 8th Program Presale ✦
+          </Link>
+          <Link
             href="#about"
             className="rounded-full border border-char/30 px-8 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:-translate-y-0.5 hover:bg-char hover:text-sand active:translate-y-0"
           >
             About me
-          </Link>
-          <Link
-            href="#newsletter"
-            className="rounded-full bg-char px-8 py-4 text-sm font-medium tracking-wide text-sand transition-all duration-300 hover:-translate-y-0.5 hover:bg-char-2 active:translate-y-0"
-          >
-            Join the mailing list
           </Link>
         </motion.div>
       </motion.div>

@@ -4,9 +4,9 @@ import { Reveal } from '@/components/ui/reveal'
 import VideoPlayer from '@/components/ui/video-player'
 
 const CLIPS = [
-  { src: '/practice-3.mp4', caption: 'Thrive' },
+  { src: '/practice-3.mp4', caption: 'Reset' },
   { src: '/practice-2.mp4', caption: 'Restore' },
-  { src: '/practice-1.mp4', caption: 'Reconnect' },
+  { src: '/practice-1.mp4', caption: 'Thrive' },
 ]
 
 export function Moments() {
@@ -19,7 +19,7 @@ export function Moments() {
             A glimpse of the practice.
           </h2>
           <p className="mt-5 max-w-xl text-sand/55">
-            Moments from the mat—restore, reconnect, and thrive in motion.
+            Moments from the mat—reset, reconnect, restore, and thrive in motion.
           </p>
         </Reveal>
 

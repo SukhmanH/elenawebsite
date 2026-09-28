@@ -3,11 +3,11 @@ import { Footer } from '@/components/layout/footer'
 import { Hero } from '@/components/home/hero'
 import { About } from '@/components/home/about'
 import { Marquee } from '@/components/home/marquee'
-import { Pillars } from '@/components/home/pillars'
-import { Meadow } from '@/components/home/meadow'
-import { Moments } from '@/components/home/moments'
-import { MailingList } from '@/components/home/mailing-list'
+import { ProgramPresale } from '@/components/home/program-presale'
 import { Connect } from '@/components/home/connect'
+import { Meadow } from '@/components/home/meadow'
+import { MailingList } from '@/components/home/mailing-list'
+import { Moments } from '@/components/home/moments'
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
         <Hero />
         <About />
         <Marquee />
-        <Pillars />
+        <ProgramPresale />
         <Connect />
         <Meadow />
         <MailingList />
@@ -27,3 +27,5 @@ export default function Home() {
     </>
   )
 }
+
+

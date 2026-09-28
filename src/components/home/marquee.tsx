@@ -1,4 +1,4 @@
-const ITEMS = ['Restore', 'Reconnect', 'Thrive']
+const ITEMS = ['Reset', 'Reconnect', 'Restore', 'Thrive']
 
 /**
  * Editorial marquee — the three pillars and the mantra drifting by in large
