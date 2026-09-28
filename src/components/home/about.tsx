@@ -6,9 +6,12 @@ import { useState, useEffect } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 const IMAGES = [
-  { src: '/portrait-1.jpg', alt: 'Elena Collins seated on a yoga mat in a rose garden' },
-  { src: '/portrait-2.jpg', alt: 'Elena Collins practicing yoga outdoors' },
-  { src: '/portrait-3.jpg', alt: 'Elena Collins teaching a yoga pose' },
+  { src: '/elena-photo-11.jpg', alt: 'Elena Collins close-up portrait' },
+  { src: '/elena-photo-3.jpg', alt: 'Elena Collins seated portrait in white dress' },
+  { src: '/elena-photo-13.jpg', alt: 'Elena Collins breathing peacefully in nature' },
+  { src: '/elena-photo-8.jpg', alt: 'Elena Collins in nature' },
+  { src: '/elena-photo-14.jpg', alt: 'Elena Collins standing portrait' },
+  { src: '/elena-photo-7.jpg', alt: 'Elena Collins profile in golden light' },
 ]
 
 export function About() {

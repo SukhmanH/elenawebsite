@@ -49,12 +49,12 @@ export function Meadow() {
     <section id="stillness" className="bg-cream py-20 sm:py-28">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="space-y-6 md:space-y-10">
-            {/* Row one — tall portrait leads, landscape rests beside it */}
+          {/* Row one — tall portrait leads, landscape rests beside it */}
           <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
             <Reveal className="md:col-span-5">
               <Photo
-                src="/elena-2.jpg"
-                alt="Elena Collins practicing yoga"
+                src="/elena-photo-1.jpg"
+                alt="Elena Collins overhead in grass"
                 aspect="aspect-[3/4]"
                 sizes={SIZES_PORTRAIT}
                 position="object-[50%_35%]"
@@ -62,8 +62,8 @@ export function Meadow() {
             </Reveal>
             <Reveal delay={0.12} className="md:col-span-7">
               <Photo
-                src="/elena-1.jpg"
-                alt="Elena Collins portrait"
+                src="/elena-photo-12.jpg"
+                alt="Elena Collins resting in grass"
                 aspect="aspect-[3/2]"
                 sizes={SIZES_LANDSCAPE}
               />
@@ -74,19 +74,40 @@ export function Meadow() {
           <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
             <Reveal className="order-last md:order-first md:col-span-7">
               <Photo
-                src="/elena-3.jpg"
-                alt="Elena Collins teaching a yoga posture"
+                src="/elena-photo-15.jpg"
+                alt="Elena Collins side profile portrait"
                 aspect="aspect-[3/2]"
                 sizes={SIZES_LANDSCAPE}
               />
             </Reveal>
             <Reveal delay={0.12} className="md:col-span-5">
               <Photo
-                src="/elena-2.jpg"
-                alt="Elena Collins outdoors in nature"
+                src="/elena-photo-5.jpg"
+                alt="Elena Collins in meadow portrait"
                 aspect="aspect-[3/4]"
                 sizes={SIZES_PORTRAIT}
                 position="object-[50%_30%]"
+              />
+            </Reveal>
+          </div>
+
+          {/* Row three — dual landscape & portrait closing grid */}
+          <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
+            <Reveal className="md:col-span-5">
+              <Photo
+                src="/elena-photo-2.jpg"
+                alt="Elena Collins close-up portrait"
+                aspect="aspect-[3/4]"
+                sizes={SIZES_PORTRAIT}
+                position="object-[50%_35%]"
+              />
+            </Reveal>
+            <Reveal delay={0.12} className="md:col-span-7">
+              <Photo
+                src="/elena-photo-9.jpg"
+                alt="Elena Collins standing in white dress"
+                aspect="aspect-[3/2]"
+                sizes={SIZES_LANDSCAPE}
               />
             </Reveal>
           </div>

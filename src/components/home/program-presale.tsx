@@ -101,11 +101,11 @@ export function ProgramPresale() {
             {/* Elena Program Image Banner */}
             <div className="relative mb-8 h-64 w-full overflow-hidden rounded-3xl border border-white/10 shadow-xl">
               <Image
-                src="/elena-3.jpg"
-                alt="Elena Collins practicing yoga"
+                src="/elena-photo-13.jpg"
+                alt="Elena Collins breathing peacefully in nature"
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover object-[50%_30%]"
+                className="object-cover object-[50%_35%]"
               />
               <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/80 via-char/20 to-transparent" />
             </div>
