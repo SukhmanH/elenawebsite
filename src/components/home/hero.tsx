@@ -116,12 +116,12 @@ export function Hero() {
           <motion.div variants={item} className="mt-6 lg:mt-0 lg:col-span-5">
             <div className="relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-[4/3] w-full overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl transition-transform duration-700 hover:scale-[1.01]">
               <Image
-                src="/elena-photo-18.jpg"
-                alt="Elena Collins lying in grass meadow landscape"
+                src="/elena-photo-14.jpg"
+                alt="Elena Collins standing portrait"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-[50%_40%]"
+                className="object-cover object-[50%_25%]"
               />
               <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/25 via-transparent to-transparent" />
             </div>
