@@ -7,13 +7,8 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 const IMAGES = [
   { src: '/elena-photo-11.jpg', alt: 'Elena Collins close-up portrait' },
-  { src: '/elena-photo-17.jpg', alt: 'Elena Collins portrait in nature' },
-  { src: '/elena-photo-19.jpg', alt: 'Elena Collins overhead in grass' },
-  { src: '/elena-photo-3.jpg', alt: 'Elena Collins seated portrait' },
-  { src: '/elena-photo-13.jpg', alt: 'Elena Collins breathing peacefully in nature' },
-  { src: '/elena-photo-18.jpg', alt: 'Elena Collins lying in grass' },
-  { src: '/elena-photo-14.jpg', alt: 'Elena Collins standing portrait' },
-  { src: '/elena-photo-20.jpg', alt: 'Elena Collins in nature' },
+  { src: '/elena-photo-3.jpg', alt: 'Elena Collins seated portrait in white dress' },
+  { src: '/elena-photo-14.jpg', alt: 'Elena Collins standing portrait in nature' },
 ]
 
 export function About() {

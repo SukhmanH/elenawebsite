@@ -3,136 +3,34 @@
 import Image from 'next/image'
 import { Reveal } from '@/components/ui/reveal'
 
-/*
-  Editorial photo grid from the meadow shoot. Portraits hold their tall
-  crop; landscapes sit centered beside them so the uneven edges read as
-  breathing room, not misalignment.
-*/
-const SIZES_PORTRAIT = '(max-width: 768px) 100vw, 40vw'
-const SIZES_LANDSCAPE = '(max-width: 768px) 100vw, 55vw'
-
-function Photo({
-  src,
-  alt,
-  aspect,
-  sizes,
-  position = 'object-center',
-}: {
-  src: string
-  alt: string
-  aspect: string
-  sizes: string
-  position?: string
-}) {
-  return (
-    <div
-      className={`group relative w-full overflow-hidden rounded-[1.75rem] bg-char-2 ${aspect}`}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes={sizes}
-        className={`object-cover ${position} transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]`}
-      />
-      {/* Faint vignette so the mossy frames sit into the cream page */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-[1.75rem] ring-1 ring-inset ring-char/10"
-      />
-    </div>
-  )
-}
-
+/**
+ * Stillness Moment — A single quiet, editorial landscape image
+ * offering a moment of breath and calm on the page.
+ */
 export function Meadow() {
   return (
-    <section id="stillness" className="bg-cream py-20 sm:py-28">
+    <section id="stillness" className="bg-sand py-20 sm:py-28">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="space-y-6 md:space-y-10">
-          {/* Row one — tall portrait leads, landscape rests beside it */}
-          <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
-            <Reveal className="md:col-span-5">
-              <Photo
-                src="/elena-photo-1.jpg"
-                alt="Elena Collins overhead in grass"
-                aspect="aspect-[3/4]"
-                sizes={SIZES_PORTRAIT}
-                position="object-[50%_35%]"
-              />
-            </Reveal>
-            <Reveal delay={0.12} className="md:col-span-7">
-              <Photo
-                src="/elena-photo-12.jpg"
-                alt="Elena Collins resting in grass"
-                aspect="aspect-[3/2]"
-                sizes={SIZES_LANDSCAPE}
-              />
-            </Reveal>
+        <Reveal>
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl">
+            <Image
+              src="/elena-photo-19.jpg"
+              alt="Elena Collins resting peacefully in nature"
+              fill
+              sizes="100vw"
+              className="object-cover object-[50%_35%] transition-transform duration-[1600ms] ease-out hover:scale-[1.02]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/40 via-transparent to-transparent"
+            />
+            <div className="absolute bottom-8 left-8 right-8 text-sand sm:bottom-12 sm:left-12">
+              <p className="font-display text-2xl italic text-sand/90 sm:text-3xl max-w-xl">
+                &ldquo;Come home to your breath, moment by moment.&rdquo;
+              </p>
+            </div>
           </div>
-
-          {/* Row two — mirrored: landscape settles first, portrait closes */}
-          <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
-            <Reveal className="order-last md:order-first md:col-span-7">
-              <Photo
-                src="/elena-photo-15.jpg"
-                alt="Elena Collins side profile portrait"
-                aspect="aspect-[3/2]"
-                sizes={SIZES_LANDSCAPE}
-              />
-            </Reveal>
-            <Reveal delay={0.12} className="md:col-span-5">
-              <Photo
-                src="/elena-photo-5.jpg"
-                alt="Elena Collins in meadow portrait"
-                aspect="aspect-[3/4]"
-                sizes={SIZES_PORTRAIT}
-                position="object-[50%_30%]"
-              />
-            </Reveal>
-          </div>
-
-          {/* Row three — dual landscape & portrait closing grid */}
-          <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
-            <Reveal className="md:col-span-5">
-              <Photo
-                src="/elena-photo-2.jpg"
-                alt="Elena Collins close-up portrait"
-                aspect="aspect-[3/4]"
-                sizes={SIZES_PORTRAIT}
-                position="object-[50%_35%]"
-              />
-            </Reveal>
-            <Reveal delay={0.12} className="md:col-span-7">
-              <Photo
-                src="/elena-photo-9.jpg"
-                alt="Elena Collins standing in white dress"
-                aspect="aspect-[3/2]"
-                sizes={SIZES_LANDSCAPE}
-              />
-            </Reveal>
-          </div>
-
-          {/* Row four — immersive nature portraits */}
-          <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
-            <Reveal className="order-last md:order-first md:col-span-7">
-              <Photo
-                src="/elena-photo-18.jpg"
-                alt="Elena Collins lying in grass"
-                aspect="aspect-[3/2]"
-                sizes={SIZES_LANDSCAPE}
-              />
-            </Reveal>
-            <Reveal delay={0.12} className="md:col-span-5">
-              <Photo
-                src="/elena-photo-16.jpg"
-                alt="Elena Collins profile portrait"
-                aspect="aspect-[3/4]"
-                sizes={SIZES_PORTRAIT}
-                position="object-[50%_30%]"
-              />
-            </Reveal>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
