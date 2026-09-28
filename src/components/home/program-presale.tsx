@@ -27,7 +27,7 @@ const TRANSFORMATIONS = [
 export function ProgramPresale() {
   const [email, setEmail] = useState('')
   const [userNote, setUserNote] = useState(
-    'Hey Elena! Please send me the presale info & early access details for the November 8th Reset program 🤍'
+    'Hey Elena! Please send me the presale info & early access details for the Radiant Reset program 🤍'
   )
   const [done, setDone] = useState(false)
   const [message, setMessage] = useState('')
@@ -40,7 +40,7 @@ export function ProgramPresale() {
     setLoading(true)
     setError('')
 
-    const mailtoSubject = encodeURIComponent('Presale Request: November 8th Reset Program')
+    const mailtoSubject = encodeURIComponent('Presale Request: Radiant Reset Program')
     const mailtoBody = encodeURIComponent(`${userNote}\n\nSender Email: ${email}`)
     const mailtoUrl = `mailto:elenacollinsyoga@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`
 
@@ -85,7 +85,7 @@ export function ProgramPresale() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-gold"></span>
             </span>
-            <span>Presale Open • Nov 8th – Mid-December</span>
+            <span>Radiant Reset Presale • Nov 8th – Mid-December</span>
           </div>
 
           <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-7xl max-w-4xl">

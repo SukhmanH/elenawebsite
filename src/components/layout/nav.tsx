@@ -6,7 +6,7 @@ import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer
 import { LogoBadge } from '@/components/ui/logo-badge'
 
 const PRIMARY = [
-  { href: '#program', label: 'Nov 8 Program' },
+  { href: '#program', label: 'Radiant Reset' },
   { href: '#about', label: 'About' },
   { href: '#newsletter', label: 'Mailing list' },
   { href: '#connect', label: 'Connect' },

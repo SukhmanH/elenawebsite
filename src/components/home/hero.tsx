@@ -101,7 +101,7 @@ export function Hero() {
                 href="#program"
                 className="rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep active:translate-y-0"
               >
-                Nov 8th Program Presale ✦
+                Radiant Reset Presale ✦
               </Link>
               <Link
                 href="#about"
