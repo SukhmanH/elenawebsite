@@ -20,15 +20,6 @@ export function Meadow() {
               sizes="100vw"
               className="object-cover object-[50%_35%] transition-transform duration-[1600ms] ease-out hover:scale-[1.02]"
             />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/40 via-transparent to-transparent"
-            />
-            <div className="absolute bottom-8 left-8 right-8 text-sand sm:bottom-12 sm:left-12">
-              <p className="font-display text-2xl italic text-sand/90 sm:text-3xl max-w-xl">
-                &ldquo;Come home to your breath, moment by moment.&rdquo;
-              </p>
-            </div>
           </div>
         </Reveal>
       </div>
