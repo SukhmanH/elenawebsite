@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 const IMAGES = [
-  { src: '/elena-photo-11.jpg', alt: 'Elena Collins close-up portrait' },
+  { src: '/elena-photo-8.jpg', alt: 'Elena Collins portrait in nature' },
   { src: '/elena-photo-3.jpg', alt: 'Elena Collins seated portrait in white dress' },
   { src: '/elena-photo-14.jpg', alt: 'Elena Collins standing portrait in nature' },
 ]
