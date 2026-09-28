@@ -40,8 +40,13 @@ export function ProgramPresale() {
     setLoading(true)
     setError('')
 
+    const mailtoSubject = encodeURIComponent('Presale Request: November 8th Reset Program')
+    const mailtoBody = encodeURIComponent(`${userNote}\n\nSender Email: ${email}`)
+    const mailtoUrl = `mailto:elenacollinsyoga@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`
+
     try {
-      const res = await fetch('/api/subscribe', {
+      // Send to API route
+      await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,16 +54,16 @@ export function ProgramPresale() {
         body: JSON.stringify({ email, note: userNote }),
       })
 
-      const data = await res.json()
+      // Launch user's mail client with pre-filled message directly to elenacollinsyoga@gmail.com
+      window.location.href = mailtoUrl
 
-      if (!res.ok) {
-        throw new Error(data.error || 'Something went wrong. Please try again.')
-      }
-
-      setMessage(data.message || "Message received! I'll email you all the presale details & early access link shortly 🤍 — Elena")
+      setMessage("Request prepared & recorded! If your email app didn't open automatically, click the button below to send your note directly to elenacollinsyoga@gmail.com 🤍 — Elena")
       setDone(true)
     } catch (err: any) {
-      setError(err.message || 'Unable to send message right now. Please try again.')
+      // Even if API fails, trigger mailto directly so email is sent
+      window.location.href = mailtoUrl
+      setMessage("Request ready! Send your note directly to elenacollinsyoga@gmail.com 🤍 — Elena")
+      setDone(true)
     } finally {
       setLoading(false)
     }
@@ -227,9 +232,9 @@ export function ProgramPresale() {
 
               <div className="mt-8 border-t border-white/10 pt-6 text-center">
                 <p className="text-xs text-sand/50">
-                  Prefer to send a direct message? Email Elena at{' '}
-                  <a href="mailto:hello@elenacollinsyoga.com" className="text-gold underline hover:text-sand">
-                    hello@elenacollinsyoga.com
+                  Prefer to send a direct message? Email Elena directly at{' '}
+                  <a href="mailto:elenacollinsyoga@gmail.com" className="text-gold underline hover:text-sand">
+                    elenacollinsyoga@gmail.com
                   </a>
                 </p>
               </div>

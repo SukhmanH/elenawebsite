@@ -5,7 +5,8 @@ import path from 'path'
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { email } = body
+    const { email, note } = body
+    const TARGET_EMAIL = 'elenacollinsyoga@gmail.com'
 
     if (!email || !email.includes('@')) {
       return NextResponse.json(

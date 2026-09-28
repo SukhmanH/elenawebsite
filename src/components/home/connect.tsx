@@ -23,8 +23,8 @@ function Instagram({ className }: { className?: string }) {
 const CONNECT_LINKS = [
   {
     title: 'Email me directly',
-    handle: 'hello@elenacollinsyoga.com',
-    href: 'mailto:hello@elenacollinsyoga.com',
+    handle: 'elenacollinsyoga@gmail.com',
+    href: 'mailto:elenacollinsyoga@gmail.com',
     icon: Mail,
     description: 'For inquiries about upcoming programs, retreats, or private sessions.',
     isInternal: false,
