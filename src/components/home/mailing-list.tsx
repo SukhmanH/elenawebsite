@@ -8,7 +8,6 @@ const COMING = [
   'Upcoming Radiant Reset Program (Nov 8th to Mid-Dec)',
   'In-Person Retreats & Events',
   'Online Workshops & Calls',
-  'Monthly Membership',
 ]
 
 export function MailingList() {
