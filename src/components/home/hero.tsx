@@ -12,6 +12,8 @@ import {
 import { AuraBackground } from '@/components/ui/aura-background'
 import { onIntroDone } from '@/lib/intro-state'
 
+import Image from 'next/image'
+
 const WORDS = [
   { text: 'Reset', shift: 'ml-0', italic: false },
   { text: 'Reconnect', shift: 'md:ml-[8%]', italic: true },
@@ -67,45 +69,64 @@ export function Hero() {
         style={{ y: contentY, opacity: contentOpacity }}
         className="relative mx-auto w-full max-w-[1600px] px-6 pt-36 pb-20 sm:px-10 sm:pt-32"
       >
-        <h1 className="font-display font-medium leading-[0.85] tracking-[-0.02em] text-char">
-          {WORDS.map((w) => (
-            <span key={w.text} className={`block overflow-hidden pb-[0.06em] ${w.shift}`}>
-              <motion.span
-                variants={word}
-                className={`block pr-[0.08em] text-[14vw] sm:text-[10vw] lg:text-[7.5rem] xl:text-[8.5rem] ${
-                  w.italic ? 'italic text-gold-deep' : ''
-                }`}
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-8">
+            <h1 className="font-display font-medium leading-[0.85] tracking-[-0.02em] text-char">
+              {WORDS.map((w) => (
+                <span key={w.text} className={`block overflow-hidden pb-[0.06em] ${w.shift}`}>
+                  <motion.span
+                    variants={word}
+                    className={`block pr-[0.08em] text-[14vw] sm:text-[10vw] lg:text-[7rem] xl:text-[8rem] ${
+                      w.italic ? 'italic text-gold-deep' : ''
+                    }`}
+                  >
+                    {w.text}
+                  </motion.span>
+                </span>
+              ))}
+            </h1>
+
+            <motion.p
+              variants={item}
+              className="mt-8 max-w-md text-lg text-char/70 md:ml-[6%]"
+            >
+              Yoga with{' '}
+              <Link href="#about" className="text-char underline decoration-gold decoration-2 underline-offset-4 hover:decoration-gold-deep">
+                Elena Collins
+              </Link>
+            </motion.p>
+
+            <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4 md:ml-[6%]">
+              <Link
+                href="#program"
+                className="rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep active:translate-y-0"
               >
-                {w.text}
-              </motion.span>
-            </span>
-          ))}
-        </h1>
+                Nov 8th Program Presale ✦
+              </Link>
+              <Link
+                href="#about"
+                className="rounded-full border border-char/30 px-8 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:-translate-y-0.5 hover:bg-char hover:text-sand active:translate-y-0"
+              >
+                About me
+              </Link>
+            </motion.div>
+          </div>
 
-        <motion.p
-          variants={item}
-          className="mt-8 max-w-md text-lg text-char/70 md:ml-[6%]"
-        >
-          Yoga with{' '}
-          <Link href="#about" className="text-char underline decoration-gold decoration-2 underline-offset-4 hover:decoration-gold-deep">
-            Elena Collins
-          </Link>
-        </motion.p>
-
-        <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4 md:ml-[6%]">
-          <Link
-            href="#program"
-            className="rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep active:translate-y-0"
-          >
-            Nov 8th Program Presale ✦
-          </Link>
-          <Link
-            href="#about"
-            className="rounded-full border border-char/30 px-8 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:-translate-y-0.5 hover:bg-char hover:text-sand active:translate-y-0"
-          >
-            About me
-          </Link>
-        </motion.div>
+          {/* Featured Editorial Photo Card in Hero */}
+          <motion.div variants={item} className="hidden lg:block lg:col-span-4">
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl transition-transform duration-700 hover:scale-[1.02]">
+              <Image
+                src="/elena-1.jpg"
+                alt="Elena Collins portrait"
+                fill
+                priority
+                sizes="30vw"
+                className="object-cover object-[50%_25%]"
+              />
+              <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/30 via-transparent to-transparent" />
+            </div>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Scroll cue — outside the parallax layer so it stays pinned to the fold. */}

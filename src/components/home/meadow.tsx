@@ -49,12 +49,12 @@ export function Meadow() {
     <section id="stillness" className="bg-cream py-20 sm:py-28">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="space-y-6 md:space-y-10">
-          {/* Row one — tall portrait leads, landscape rests beside it */}
+            {/* Row one — tall portrait leads, landscape rests beside it */}
           <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
             <Reveal className="md:col-span-5">
               <Photo
-                src="/meadow-2.jpg"
-                alt="Elena standing in a white dress among spring trees"
+                src="/elena-2.jpg"
+                alt="Elena Collins practicing yoga"
                 aspect="aspect-[3/4]"
                 sizes={SIZES_PORTRAIT}
                 position="object-[50%_35%]"
@@ -62,8 +62,8 @@ export function Meadow() {
             </Reveal>
             <Reveal delay={0.12} className="md:col-span-7">
               <Photo
-                src="/meadow-1.jpg"
-                alt="Elena resting in tall grass, head on her hand, smiling softly"
+                src="/elena-1.jpg"
+                alt="Elena Collins portrait"
                 aspect="aspect-[3/2]"
                 sizes={SIZES_LANDSCAPE}
               />
@@ -74,16 +74,16 @@ export function Meadow() {
           <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
             <Reveal className="order-last md:order-first md:col-span-7">
               <Photo
-                src="/meadow-4.jpg"
-                alt="Elena lying in the meadow grass with her eyes closed"
+                src="/elena-3.jpg"
+                alt="Elena Collins teaching a yoga posture"
                 aspect="aspect-[3/2]"
                 sizes={SIZES_LANDSCAPE}
               />
             </Reveal>
             <Reveal delay={0.12} className="md:col-span-5">
               <Photo
-                src="/meadow-3.jpg"
-                alt="Elena seated with her arms wrapped around her knees, gazing aside"
+                src="/elena-2.jpg"
+                alt="Elena Collins outdoors in nature"
                 aspect="aspect-[3/4]"
                 sizes={SIZES_PORTRAIT}
                 position="object-[50%_30%]"

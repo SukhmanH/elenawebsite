@@ -28,6 +28,8 @@ const INCLUDED_ITEMS = [
   },
 ]
 
+import Image from 'next/image'
+
 export function ProgramPresale() {
   const [email, setEmail] = useState('')
   const [done, setDone] = useState(false)
@@ -96,6 +98,18 @@ export function ProgramPresale() {
         <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:items-start">
           {/* Main Info Box */}
           <Reveal className="lg:col-span-7">
+            {/* Elena Program Image Banner */}
+            <div className="relative mb-8 h-64 w-full overflow-hidden rounded-3xl border border-white/10 shadow-xl">
+              <Image
+                src="/elena-3.jpg"
+                alt="Elena Collins practicing yoga"
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover object-[50%_30%]"
+              />
+              <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/80 via-char/20 to-transparent" />
+            </div>
+
             <div className="space-y-6 text-lg leading-relaxed text-sand/80">
               <p>
                 Our upcoming program begins on <strong className="text-gold font-semibold">November 8th</strong> and wraps up in <strong className="text-gold font-semibold">mid-December</strong> — intentionally timed so you can ground yourself, establish restorative habits, and reset before the holiday season begins.
