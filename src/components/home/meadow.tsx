@@ -111,6 +111,27 @@ export function Meadow() {
               />
             </Reveal>
           </div>
+
+          {/* Row four — immersive nature portraits */}
+          <div className="grid gap-6 md:grid-cols-12 md:items-center md:gap-10">
+            <Reveal className="order-last md:order-first md:col-span-7">
+              <Photo
+                src="/elena-photo-18.jpg"
+                alt="Elena Collins lying in grass"
+                aspect="aspect-[3/2]"
+                sizes={SIZES_LANDSCAPE}
+              />
+            </Reveal>
+            <Reveal delay={0.12} className="md:col-span-5">
+              <Photo
+                src="/elena-photo-16.jpg"
+                alt="Elena Collins profile portrait"
+                aspect="aspect-[3/4]"
+                sizes={SIZES_PORTRAIT}
+                position="object-[50%_30%]"
+              />
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
