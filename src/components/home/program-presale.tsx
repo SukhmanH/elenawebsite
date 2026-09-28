@@ -3,7 +3,30 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
-import { Calendar, Sparkles, CheckCircle2, ArrowRight, Mail } from 'lucide-react'
+import { Calendar, Sparkles, CheckCircle2, ArrowRight, Mail, Video, BookOpen, HeartPulse, Users } from 'lucide-react'
+
+const INCLUDED_ITEMS = [
+  {
+    icon: Video,
+    title: 'Weekly Yoga Videos',
+    desc: 'At-your-own-pace guided practice videos to flow whenever your schedule allows.',
+  },
+  {
+    icon: Users,
+    title: 'Live Calls',
+    desc: 'Interactive group calls to move together, ask questions, and stay connected.',
+  },
+  {
+    icon: BookOpen,
+    title: 'Journaling Prompts',
+    desc: 'Thoughtful weekly prompts designed to foster self-reflection and mental space.',
+  },
+  {
+    icon: HeartPulse,
+    title: 'Habits Built to Reset',
+    desc: 'Daily grounding rituals and sustainable habits to help you reset before the holidays.',
+  },
+]
 
 export function ProgramPresale() {
   const [email, setEmail] = useState('')
@@ -58,15 +81,15 @@ export function ProgramPresale() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-gold"></span>
             </span>
-            <span>Presale Open • Starts Nov 8th</span>
+            <span>Presale Open • Nov 8th – Mid-December</span>
           </div>
 
           <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-7xl max-w-4xl">
-            6-Week Immersive Breath &amp; Presence Program
+            Upcoming Reset Program
           </h2>
 
-          <p className="mt-6 font-display text-xl sm:text-2xl italic text-gold/90 max-w-2xl">
-            A guided online journey into daily practice, breathwork, and deep calm.
+          <p className="mt-6 font-display text-xl sm:text-2xl italic text-gold/90 max-w-3xl">
+            Starting November 8th and ending mid-December, before the holidays hit.
           </p>
         </Reveal>
 
@@ -75,29 +98,35 @@ export function ProgramPresale() {
           <Reveal className="lg:col-span-7">
             <div className="space-y-6 text-lg leading-relaxed text-sand/80">
               <p>
-                Our upcoming 6-week program launches on <strong className="text-gold font-semibold">November 8th</strong>. Designed as an intimate group experience, this program brings daily breathwork rituals, live guided movement sessions, and weekly integration practices directly into your routine.
+                Our upcoming program begins on <strong className="text-gold font-semibold">November 8th</strong> and wraps up in <strong className="text-gold font-semibold">mid-December</strong> — intentionally timed so you can ground yourself, establish restorative habits, and reset before the holiday season begins.
               </p>
               <p>
-                Presale enrollment is now open! By joining the presale list today, you&apos;ll receive early-bird pricing, priority registration before public launch, and full program details delivered straight to your email.
+                Presale enrollment is currently open! Join the presale list to receive early access, exclusive pricing, and full program details sent directly to your email.
               </p>
             </div>
 
-            {/* Highlights Grid */}
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/30">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/20 text-gold">
-                  <Calendar className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 font-display text-xl font-medium text-sand">Starts Nov 8th</h3>
-                <p className="mt-2 text-sm text-sand/65">6 weeks of live sessions, recorded practices, &amp; guided audio breathwork.</p>
-              </div>
+            {/* What's Included Grid */}
+            <div className="mt-10">
+              <h3 className="text-xs uppercase tracking-[0.3em] font-medium text-gold mb-6">
+                What&apos;s Included in the Program:
+              </h3>
 
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/30">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/20 text-gold">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 font-display text-xl font-medium text-sand">Presale Perks</h3>
-                <p className="mt-2 text-sm text-sand/65">Early bird pricing discount + preliminary practice guide sent ahead of start date.</p>
+              <div className="grid gap-6 sm:grid-cols-2">
+                {INCLUDED_ITEMS.map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <div
+                      key={item.title}
+                      className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/30 hover:bg-white/[0.05]"
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/20 text-gold">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h4 className="mt-4 font-display text-xl font-medium text-sand">{item.title}</h4>
+                      <p className="mt-2 text-sm text-sand/65 leading-relaxed">{item.desc}</p>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </Reveal>
@@ -111,10 +140,10 @@ export function ProgramPresale() {
               </div>
 
               <h3 className="mt-4 font-display text-2xl font-medium text-sand sm:text-3xl">
-                Receive Full Details &amp; Presale Link
+                Receive Details &amp; Presale Access
               </h3>
               <p className="mt-3 text-sm text-sand/70 leading-relaxed">
-                Enter your email address below to receive the complete program syllabus, presale pricing, and schedule sent directly to your inbox.
+                Enter your email address to get an email with the complete program breakdown, live call schedule, and presale access code.
               </p>
 
               {done ? (
@@ -166,7 +195,7 @@ export function ProgramPresale() {
 
               <div className="mt-8 border-t border-white/10 pt-6 text-center">
                 <p className="text-xs text-sand/50">
-                  Have specific questions? Email directly at{' '}
+                  Have questions? Email directly at{' '}
                   <a href="mailto:hello@elenacollinsyoga.com" className="text-gold underline hover:text-sand">
                     hello@elenacollinsyoga.com
                   </a>
