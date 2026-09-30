@@ -58,7 +58,7 @@ export function Hero() {
   // Hold the entrance until the intro curtain has actually lifted.
   useEffect(() => onIntroDone(() => setReady(true)), [])
 
-  // The hero settles back and dims as the film below rises over it.
+  // The hero settles back and dims as the About section rises over it.
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
