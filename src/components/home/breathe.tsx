@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
 import { AnimatePresence, motion, useInView } from 'framer-motion'
 import { RiseText } from '@/components/motion/rise-text'
 import { useReduceMotion } from '@/components/motion/use-reduce-motion'
@@ -22,8 +21,7 @@ const START: Breath = { phase: 'in', left: PHASES.in.seconds }
 
 /**
  * The stillness moment, and the site's signature: a breathe-along guide.
- * Elena's portrait sits in a circle that swells on the inhale and softens on
- * the exhale, with ripples trailing behind and the cue + count beneath.
+ * A soft honey orb swells on the inhale and softens on the exhale, with ripples trailing behind and the cue + count beneath.
  * It only runs while on screen, can be paused, and under reduced motion it
  * waits for "Begin" and then guides with the words alone.
  */
@@ -115,20 +113,14 @@ export function Breathe() {
                 transition={{ ...transition, delay: running ? 0.25 - i * 0.12 : 0 }}
               />
             ))}
+            {/* A soft orb of honey light that swells and softens with the breath. */}
             <motion.div
-              className="relative h-full w-full overflow-hidden rounded-full bg-olive shadow-[0_40px_80px_-40px_rgba(28,26,15,0.55)]"
+              aria-hidden
+              className="relative h-full w-full rounded-full bg-[radial-gradient(circle_at_50%_40%,#F3EDE0_0%,#EBD5A4_45%,#DDB46A_100%)] shadow-[0_40px_80px_-40px_rgba(122,90,38,0.55)]"
               initial={false}
               animate={{ scale: target }}
               transition={transition}
-            >
-              <Image
-                src="/elena-photo-19.jpg"
-                alt="Elena Collins resting peacefully in the grass, eyes closed"
-                fill
-                sizes="(max-width: 1024px) 80vw, 460px"
-                className="object-cover object-[50%_52%]"
-              />
-            </motion.div>
+            />
           </div>
 
           <div className="mt-12 text-center" aria-live="polite">
