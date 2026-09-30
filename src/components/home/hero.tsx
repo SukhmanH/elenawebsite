@@ -110,13 +110,10 @@ export function Hero() {
         <h1 className="font-display text-[17vw] font-light leading-[0.94] tracking-[-0.04em] sm:text-[11.6vw] lg:text-[11vw] 2xl:text-[11.5rem]">
           <span className="sr-only">Reset, Reconnect, Restore, Thrive.</span>
           <span aria-hidden>
-            <Word>Reset</Word>{' '}
-            <Pill src="/elena-photo-12.jpg" position="object-[55%_30%]" />
-            <br className="sm:hidden" />
-            <Word italic>Reconnect</Word>
+            <Word>Reset</Word> <Word italic>Reconnect</Word>
             <br />
             <Word>Restore</Word>{' '}
-            <Pill src="/elena-photo-6.jpg" position="object-[50%_28%]" />
+            <Pill src="/elena-photo-6.jpg" position="object-[50%_39%]" />
             <br className="sm:hidden" />
             <Word italic>Thrive.</Word>
           </span>
