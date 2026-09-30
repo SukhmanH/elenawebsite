@@ -99,13 +99,13 @@ export function Hero() {
             <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4 md:ml-[6%]">
               <Link
                 href="#program"
-                className="rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-char shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep active:translate-y-0"
+                className="rounded-full bg-char px-8 py-4 text-sm font-medium tracking-wide text-sand transition-colors duration-300 hover:bg-gold-deep"
               >
-                Radiant Reset Presale ✦
+                Join the Radiant Reset presale
               </Link>
               <Link
                 href="#about"
-                className="rounded-full border border-char/30 px-8 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:-translate-y-0.5 hover:bg-char hover:text-sand active:translate-y-0"
+                className="rounded-full border border-char/25 px-8 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:-translate-y-0.5 hover:bg-char hover:text-sand active:translate-y-0"
               >
                 About me
               </Link>
@@ -114,7 +114,7 @@ export function Hero() {
 
           {/* Featured Editorial Landscape Photo in Hero */}
           <motion.div variants={item} className="mt-6 lg:mt-0 lg:col-span-5">
-            <div className="relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-[4/3] w-full overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl transition-transform duration-700 hover:scale-[1.01]">
+            <div className="relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-[4/3] w-full overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-[0_30px_60px_-30px_rgba(27,35,26,0.35)]">
               <Image
                 src="/elena-photo-5.jpg"
                 alt="Elena Collins smiling softly in meadow"
@@ -137,7 +137,7 @@ export function Hero() {
         transition={{ duration: 1, delay: 1.1 }}
         className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3"
       >
-        <span className="text-[10px] uppercase tracking-[0.4em] text-char/45">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.24em] text-char/45">Scroll</span>
         <span className="relative block h-12 w-px overflow-hidden bg-char/15">
           <span className="cue-dot absolute left-0 top-0 h-4 w-px bg-gold-deep" />
         </span>

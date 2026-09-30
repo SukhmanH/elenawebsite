@@ -74,7 +74,7 @@ export function About() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="text-xs uppercase tracking-[0.4em] text-gold-deep">
+          <p className="text-xs uppercase tracking-[0.24em] text-gold-deep">
             About me
           </p>
           <h2 className="mt-6 max-w-3xl font-display text-3xl font-medium leading-[1.1] text-char sm:text-4xl lg:text-5xl">

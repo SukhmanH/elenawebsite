@@ -1,31 +1,13 @@
 'use client'
 
 import { Reveal } from '@/components/ui/reveal'
-import { Mail, Sparkles, ArrowUpRight, ArrowDown } from 'lucide-react'
-
-function Instagram({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth="2"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  )
-}
+import { ArrowUpRight, ArrowDown } from 'lucide-react'
 
 const CONNECT_LINKS = [
   {
     title: 'Email me directly',
     handle: 'elenacollinsyoga@gmail.com',
     href: 'mailto:elenacollinsyoga@gmail.com',
-    icon: Mail,
     description: 'For inquiries about upcoming programs, retreats, or private sessions.',
     isInternal: false,
   },
@@ -33,7 +15,6 @@ const CONNECT_LINKS = [
     title: 'Yoga & Practice',
     handle: '@elenacollinsyoga',
     href: 'https://instagram.com/elenacollinsyoga',
-    icon: Instagram,
     description: 'Daily practice clips, breathwork techniques, and program updates.',
     isInternal: false,
   },
@@ -41,15 +22,13 @@ const CONNECT_LINKS = [
     title: 'Personal Journal',
     handle: '@elena.collinsss',
     href: 'https://instagram.com/elena.collinsss',
-    icon: Instagram,
     description: 'Life behind the scenes, travel, and personal reflections.',
     isInternal: false,
   },
   {
     title: 'Mailing List',
-    handle: 'Get early access ✦',
+    handle: 'Get early access',
     href: '#newsletter',
-    icon: Sparkles,
     description: 'Be the first invited when new programs, retreats, and workshops open.',
     isInternal: true,
   },
@@ -60,58 +39,41 @@ export function Connect() {
     <section id="connect" className="bg-sand py-28 sm:py-36">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.4em] text-gold-deep">
+          <p className="text-xs uppercase tracking-[0.24em] text-gold-deep">
             Reach out
           </p>
           <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-char sm:text-5xl lg:text-6xl">
-            Let&apos;s connect.
+            Let&apos;s stay in touch.
           </h2>
           <p className="mt-5 max-w-xl text-lg text-char/70">
-            Whether you have a question about upcoming offerings, want to say hello, or want to join the list for early access.
+            A question about upcoming offerings, a quick hello, or early access to what's next. I read every message.
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-14 divide-y divide-char/10 border-y border-char/10">
           {CONNECT_LINKS.map((item, i) => {
-            const Icon = item.icon
+            const external = !item.isInternal && item.href.startsWith('http')
             return (
-              <Reveal key={item.handle} delay={i * 0.08}>
-                <a
-                  href={item.href}
-                  target={!item.isInternal && item.href.startsWith('http') ? '_blank' : undefined}
-                  rel={!item.isInternal && item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={`group relative flex h-full flex-col justify-between rounded-[2rem] border p-8 shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl active:translate-y-0 ${
-                    item.isInternal
-                      ? 'border-gold-deep/40 bg-gold/15 hover:bg-gold/25'
-                      : 'border-char/10 bg-white/60 hover:bg-white'
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between text-gold-deep">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 transition-colors duration-500 group-hover:bg-gold-deep group-hover:text-sand">
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      {item.isInternal ? (
-                        <ArrowDown className="h-5 w-5 transition-transform duration-500 group-hover:translate-y-1 text-gold-deep" />
-                      ) : (
-                        <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                      )}
-                    </div>
-                    <h3 className="mt-8 font-display text-2xl font-medium text-char">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm font-medium tracking-wide text-gold-deep">
-                      {item.handle}
-                    </p>
-                    <p className="mt-4 text-sm leading-relaxed text-char/65">
-                      {item.description}
-                    </p>
-                  </div>
-                </a>
+              <Reveal key={item.handle} delay={i * 0.06}>
+                <li>
+                  <a
+                    href={item.href}
+                    target={external ? '_blank' : undefined}
+                    rel={external ? 'noopener noreferrer' : undefined}
+                    className="group grid items-baseline gap-2 py-8 transition-colors duration-300 md:grid-cols-[1fr_1.3fr_1.6fr_auto] md:gap-10"
+                  >
+                    <h3 className="font-display text-2xl font-medium text-char sm:text-3xl">{item.title}</h3>
+                    <p className="text-base font-medium text-gold-deep break-words">{item.handle}</p>
+                    <p className="text-[15px] leading-relaxed text-char/60">{item.description}</p>
+                    <span aria-hidden className="hidden text-char/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-gold-deep md:block">
+                      {item.isInternal ? <ArrowDown className="h-5 w-5" /> : <ArrowUpRight className="h-5 w-5" />}
+                    </span>
+                  </a>
+                </li>
               </Reveal>
             )
           })}
-        </div>
+        </ul>
       </div>
     </section>
   )

@@ -12,7 +12,7 @@ export function Meadow() {
     <section id="stillness" className="bg-sand py-20 sm:py-28">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <Reveal>
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-2xl">
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-[2.5rem] border border-char/10 bg-sand-2 shadow-[0_30px_60px_-30px_rgba(27,35,26,0.35)]">
             <Image
               src="/elena-photo-19.jpg"
               alt="Elena Collins resting peacefully in nature"

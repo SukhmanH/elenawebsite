@@ -110,7 +110,7 @@ export function LoadingScreen() {
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
           aria-hidden
         >
-          <span className="absolute top-[14%] text-sm tabular-nums tracking-[0.35em] text-gold/70">
+          <span className="absolute top-[14%] text-sm tabular-nums tracking-[0.25em] text-gold/70">
             {count}
           </span>
           <div className="relative h-[152px] w-[152px]">

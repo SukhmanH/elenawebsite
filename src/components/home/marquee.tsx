@@ -21,7 +21,7 @@ export function Marquee() {
                   i % 2 === 1 ? 'italic' : ''
                 }`}
               >
-                <span className="mx-8 text-lg text-gold-deep/70 sm:mx-10">✦</span>
+                <span className="mx-8 h-1.5 w-1.5 self-center rounded-full bg-gold-deep/50 sm:mx-12" />
                 {text}
               </span>
             ))}

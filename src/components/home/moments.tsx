@@ -14,7 +14,7 @@ export function Moments() {
     <section id="moments" className="bg-char py-28 sm:py-36">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.4em] text-gold">In motion</p>
+          <p className="text-xs uppercase tracking-[0.24em] text-gold">In motion</p>
           <h2 className="mt-6 max-w-3xl font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
             A glimpse of the practice.
           </h2>

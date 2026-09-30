@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
 
 const COMING = [
-  'Upcoming Radiant Reset Program (Nov 8th to Mid-Dec)',
+  'Radiant Reset Program, Nov 8 to mid-December',
   'In-Person Retreats & Events',
   'Online Workshops & Calls',
 ]
@@ -50,15 +50,10 @@ export function MailingList() {
   return (
     <section id="newsletter" className="bg-sand py-28 sm:py-36">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-char/95 text-sand shadow-2xl backdrop-blur-md">
-          {/* Soft aura gradient so the dark panel feels living */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(121,148,126,0.22),transparent_60%)]"
-          />
+        <div className="relative overflow-hidden rounded-[2rem] bg-char text-sand shadow-[0_30px_60px_-30px_rgba(27,35,26,0.35)]">
           <div className="relative grid gap-12 p-10 sm:p-16 md:grid-cols-2 md:items-center md:gap-20">
             <Reveal>
-              <p className="text-xs uppercase tracking-[0.4em] text-gold">
+              <p className="text-xs uppercase tracking-[0.24em] text-gold">
                 New offerings are coming
               </p>
               <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
@@ -115,8 +110,8 @@ export function MailingList() {
             {/* Right side: What's coming list */}
             <Reveal delay={0.1}>
               <div className="space-y-8 md:pl-6 border-t border-white/10 pt-10 md:border-t-0 md:border-l md:pt-0">
-                <p className="text-xs uppercase tracking-[0.3em] text-gold/70">
-                  What&apos;s coming:
+                <p className="text-xs uppercase tracking-[0.22em] text-gold/70">
+                  What&apos;s coming
                 </p>
                 <ul className="space-y-6">
                   {COMING.map((item) => (
@@ -124,9 +119,7 @@ export function MailingList() {
                       key={item}
                       className="flex items-center gap-4 border-b border-white/10 pb-4 text-sand/85"
                     >
-                      <span aria-hidden className="text-gold">
-                        ✦
-                      </span>
+                      <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                       <h3 className="font-display text-xl font-medium text-sand leading-none">
                         {item}
                       </h3>

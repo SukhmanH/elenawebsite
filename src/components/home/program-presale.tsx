@@ -3,22 +3,19 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Reveal } from '@/components/ui/reveal'
-import { Sparkles, CheckCircle2, ArrowRight, HeartPulse, ShieldCheck, Sun, MessageSquareQuote, Pencil } from 'lucide-react'
+import { CheckCircle2, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 const TRANSFORMATIONS = [
   {
-    icon: HeartPulse,
     title: 'Release Physical & Mental Tension',
     desc: 'Soften end-of-year stress, chronic tightness, and burnout through daily restorative movement and guided breathwork.',
   },
   {
-    icon: ShieldCheck,
     title: 'Cultivate Daily Calming Rituals',
     desc: 'Establish steady, simple habits that help you regulate your nervous system and feel centered every day.',
   },
   {
-    icon: Sun,
     title: 'Enter the Holidays Rooted & Rested',
     desc: 'Rather than running on empty when December arrives, step into the season feeling deeply connected, calm, and present.',
   },
@@ -57,12 +54,12 @@ export function ProgramPresale() {
       // Launch user's mail client with pre-filled message directly to elenacollinsyoga@gmail.com
       window.location.href = mailtoUrl
 
-      setMessage("Request prepared & recorded! If your email app didn't open automatically, click the button below to send your note directly to elenacollinsyoga@gmail.com 🤍 — Elena")
+      setMessage("Thank you! Your email app should open with your note ready to send. If it doesn't, write to elenacollinsyoga@gmail.com and I'll get back to you. 🤍 Elena")
       setDone(true)
     } catch (err: any) {
       // Even if API fails, trigger mailto directly so email is sent
       window.location.href = mailtoUrl
-      setMessage("Request ready! Send your note directly to elenacollinsyoga@gmail.com 🤍 — Elena")
+      setMessage("Almost there. Send your note to elenacollinsyoga@gmail.com and I'll get back to you. 🤍 Elena")
       setDone(true)
     } finally {
       setLoading(false)
@@ -74,22 +71,17 @@ export function ProgramPresale() {
       {/* Background radial glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(198,142,124,0.15),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(198,142,124,0.08),transparent_70%)]"
       />
 
       <div className="relative mx-auto max-w-[1400px] px-6 sm:px-10">
         <Reveal>
-          {/* Presale Badge */}
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-gold backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-gold"></span>
-            </span>
-            <span>Radiant Reset Presale • Nov 8th to Mid-December</span>
-          </div>
+          <p className="text-xs font-medium uppercase tracking-[0.24em] text-gold">
+            Radiant Reset presale <span className="mx-2 text-gold/40">/</span> Nov 8 to mid-December
+          </p>
 
-          <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-7xl max-w-4xl">
-            A Space to Reset &amp; Ground Before the Holidays
+          <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-7xl max-w-4xl">
+            A space to reset and ground before the holidays
           </h2>
 
           <p className="mt-6 font-display text-xl sm:text-2xl italic text-gold/90 max-w-3xl">
@@ -101,7 +93,7 @@ export function ProgramPresale() {
           {/* Main Info & Transformation Focus */}
           <Reveal className="lg:col-span-7">
             {/* Elena Program Image Banner */}
-            <div className="relative mb-8 aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl">
+            <div className="relative mb-8 aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl">
               <Image
                 src="/elena-photo-11.jpg"
                 alt="Elena Collins portrait"
@@ -112,7 +104,7 @@ export function ProgramPresale() {
               <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/80 via-char/20 to-transparent" />
             </div>
 
-            <div className="space-y-6 text-lg leading-relaxed text-sand/80">
+            <div className="space-y-6 text-lg leading-relaxed text-sand/75">
               <p>
                 Before the end-of-year rush sets in, this program gives you dedicated space to pause, release accumulated physical and mental tension, and come back to yourself.
               </p>
@@ -123,51 +115,37 @@ export function ProgramPresale() {
 
             {/* What this program does for you */}
             <div className="mt-10">
-              <h3 className="text-xs uppercase tracking-[0.3em] font-medium text-gold mb-6">
-                What This Program Does For You:
+              <h3 className="text-xs uppercase tracking-[0.22em] font-medium text-gold mb-6">
+                What the program does for you
               </h3>
 
-              <div className="grid gap-6 sm:grid-cols-1">
-                {TRANSFORMATIONS.map((item) => {
-                  const Icon = item.icon
-                  return (
-                    <div
-                      key={item.title}
-                      className="flex items-start gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/30 hover:bg-white/[0.05]"
-                    >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/20 text-gold">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h4 className="font-display text-xl font-medium text-sand">{item.title}</h4>
-                        <p className="mt-1.5 text-sm text-sand/70 leading-relaxed">{item.desc}</p>
-                      </div>
+              <ol className="divide-y divide-white/10 border-y border-white/10">
+                {TRANSFORMATIONS.map((item, i) => (
+                  <li key={item.title} className="grid grid-cols-[2.5rem_1fr] gap-4 py-6">
+                    <span className="font-display text-xl italic text-gold/80">0{i + 1}</span>
+                    <div>
+                      <h4 className="font-display text-xl font-medium text-sand">{item.title}</h4>
+                      <p className="mt-2 text-[15px] leading-relaxed text-sand/65">{item.desc}</p>
                     </div>
-                  )
-                })}
-              </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </Reveal>
 
           {/* Personalized Message Request Card */}
           <Reveal delay={0.15} className="lg:col-span-5">
-            <div className="relative rounded-3xl border border-gold/30 bg-gradient-to-b from-char-2/90 to-char/90 p-8 sm:p-10 shadow-2xl backdrop-blur-md">
-              <div className="flex items-center justify-between gap-3 text-gold">
-                <div className="flex items-center gap-2.5">
-                  <MessageSquareQuote className="h-6 w-6" />
-                  <span className="text-xs uppercase tracking-[0.3em] font-medium">Request Presale Info</span>
-                </div>
-                <span className="flex items-center gap-1 text-[11px] font-medium uppercase tracking-wider text-gold/80 bg-gold/10 border border-gold/25 px-2.5 py-0.5 rounded-full">
-                  <Pencil className="h-3 w-3" /> Click to Edit
-                </span>
-              </div>
+            <div className="relative rounded-3xl border border-white/10 bg-char-2 p-8 sm:p-10 lg:sticky lg:top-24">
+              <p className="text-xs font-medium uppercase tracking-[0.22em] text-gold">
+                Request presale info
+              </p>
 
               {done ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="mt-8 rounded-2xl border border-gold/30 bg-gold/10 p-6 text-center"
+                  className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center"
                 >
                   <CheckCircle2 className="mx-auto h-10 w-10 text-gold" />
                   <p className="mt-4 font-display text-lg italic text-gold leading-relaxed">
@@ -175,12 +153,12 @@ export function ProgramPresale() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={onSubmit} className="mt-6 space-y-4">
+                <form onSubmit={onSubmit} className="mt-5 space-y-4">
                   {/* Editable Note Box */}
-                  <div className="group relative rounded-2xl border border-white/20 bg-white/[0.04] p-5 backdrop-blur-sm transition-all duration-300 focus-within:border-gold focus-within:bg-white/[0.07] focus-within:shadow-[0_0_20px_rgba(198,142,124,0.15)] hover:border-gold/50">
+                  <div className="group relative rounded-2xl border border-white/15 bg-white/[0.03] p-5 transition-colors duration-300 focus-within:border-gold hover:border-white/30">
                     <label htmlFor="presale-note" className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] font-medium text-gold/80 mb-2">
-                      <span>Your Message to Elena:</span>
-                      <span className="text-[10px] text-sand/50 normal-case tracking-normal">Editable note</span>
+                      <span>Your message to Elena</span>
+                      <span className="text-[10px] normal-case tracking-normal text-sand/45">Feel free to edit</span>
                     </label>
                     <textarea
                       id="presale-note"
@@ -193,8 +171,8 @@ export function ProgramPresale() {
                     />
                   </div>
 
-                  <p className="text-xs text-sand/65 px-1">
-                    Enter your email address below to send this request directly to Elena and receive the full program breakdown in your inbox.
+                  <p className="px-1 text-xs leading-relaxed text-sand/60">
+                    Add your email and I will send the full program breakdown straight to your inbox.
                   </p>
 
                   <div>
@@ -209,16 +187,16 @@ export function ProgramPresale() {
                       disabled={loading}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full rounded-2xl border border-white/15 bg-white/[0.05] px-5 py-4 text-sand transition-all duration-300 placeholder:text-sand/40 focus:border-gold focus:bg-white/[0.08] focus:shadow-[0_0_0_4px_rgba(198,142,124,0.15)] focus:outline-none disabled:opacity-50"
+                      className="w-full rounded-full border border-white/15 bg-white/[0.03] px-5 py-4 text-sand transition-all duration-300 placeholder:text-sand/40 focus:border-gold focus:bg-white/[0.08] focus:outline-none disabled:opacity-50"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gold px-6 py-4 font-medium tracking-wide text-char shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-deep hover:shadow-xl active:translate-y-0 disabled:opacity-50"
+                    className="group flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:bg-gold-deep active:translate-y-0 disabled:opacity-50"
                   >
-                    <span>{loading ? 'Sending request...' : 'Send me the presale info ✦'}</span>
+                    <span>{loading ? 'Sending request...' : 'Send me the presale info'}</span>
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
 
@@ -232,7 +210,7 @@ export function ProgramPresale() {
 
               <div className="mt-8 border-t border-white/10 pt-6 text-center">
                 <p className="text-xs text-sand/50">
-                  Prefer to send a direct message? Email Elena directly at{' '}
+                  Prefer to write directly?{' '}
                   <a href="mailto:elenacollinsyoga@gmail.com" className="text-gold underline hover:text-sand">
                     elenacollinsyoga@gmail.com
                   </a>

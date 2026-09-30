@@ -20,7 +20,7 @@ export function Pillars() {
     <section id="pillars" className="bg-char py-28 text-sand sm:py-36">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.4em] text-gold">
+          <p className="text-xs uppercase tracking-[0.24em] text-gold">
             What&apos;s coming
           </p>
           <h2 className="mt-6 max-w-3xl font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-6xl">
