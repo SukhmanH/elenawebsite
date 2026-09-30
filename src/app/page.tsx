@@ -5,7 +5,8 @@ import { About } from '@/components/home/about'
 import { Marquee } from '@/components/home/marquee'
 import { ProgramPresale } from '@/components/home/program-presale'
 import { Connect } from '@/components/home/connect'
-import { Meadow } from '@/components/home/meadow'
+import { Film } from '@/components/home/film'
+import { Breathe } from '@/components/home/breathe'
 import { MailingList } from '@/components/home/mailing-list'
 import { Moments } from '@/components/home/moments'
 
@@ -15,11 +16,12 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Film />
         <About />
         <Marquee />
         <ProgramPresale />
         <Connect />
-        <Meadow />
+        <Breathe />
         <MailingList />
         <Moments />
       </main>

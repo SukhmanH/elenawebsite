@@ -1,133 +1,71 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Play, Pause, Volume2, Volume1, VolumeX } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const formatTime = (seconds: number) => {
+  if (!isFinite(seconds)) return "0:00";
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = Math.floor(seconds % 60);
   return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
 };
 
-const CustomSlider = ({
-  value,
-  onChange,
-  className,
-}: {
-  value: number;
-  onChange: (value: number) => void;
-  className?: string;
-}) => {
-  return (
-    <motion.div
-      className={cn(
-        "relative w-full h-1 bg-white/20 rounded-full cursor-pointer",
-        className
-      )}
-      onClick={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const percentage = (x / rect.width) * 100;
-        onChange(Math.min(Math.max(percentage, 0), 100));
-      }}
-    >
-      <motion.div
-        className="absolute top-0 left-0 h-full bg-white rounded-full"
-        style={{ width: `${value}%` }}
-        initial={{ width: 0 }}
-        animate={{ width: `${value}%` }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      />
-    </motion.div>
-  );
-};
-
-const VideoPlayer = ({ src }: { src: string }) => {
+/**
+ * Looping, muted practice clip for the portrait frames. Tap/click toggles
+ * playback; on hover a compact bar offers seek, play/pause and sound.
+ */
+const VideoPlayer = ({ src, className }: { src: string; className?: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [volume, setVolume] = useState(0);
-  const [progress, setProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
-  const [playbackSpeed, setPlaybackSpeed] = useState(1);
-  const [showControls, setShowControls] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [showControls, setShowControls] = useState(false);
 
   const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleVolumeChange = (value: number) => {
-    if (videoRef.current) {
-      const newVolume = value / 100;
-      videoRef.current.volume = newVolume;
-      setVolume(newVolume);
-      setIsMuted(newVolume === 0);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (videoRef.current) {
-      const progress =
-        (videoRef.current.currentTime / videoRef.current.duration) * 100;
-      setProgress(isFinite(progress) ? progress : 0);
-      setCurrentTime(videoRef.current.currentTime);
-      setDuration(videoRef.current.duration);
-    }
-  };
-
-  const handleSeek = (value: number) => {
-    if (videoRef.current && videoRef.current.duration) {
-      const time = (value / 100) * videoRef.current.duration;
-      if (isFinite(time)) {
-        videoRef.current.currentTime = time;
-        setProgress(value);
-      }
-    }
+    const video = videoRef.current;
+    if (!video) return;
+    if (isPlaying) video.pause();
+    else video.play();
+    setIsPlaying(!isPlaying);
   };
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-      if (!isMuted) {
-        setVolume(0);
-      } else {
-        setVolume(1);
-        videoRef.current.volume = 1;
-      }
-    }
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !isMuted;
+    if (isMuted) video.volume = 1;
+    setIsMuted(!isMuted);
   };
 
-  const setSpeed = (speed: number) => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = speed;
-      setPlaybackSpeed(speed);
-    }
+  const handleTimeUpdate = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    const pct = (video.currentTime / video.duration) * 100;
+    setProgress(isFinite(pct) ? pct : 0);
+    setCurrentTime(video.currentTime);
+  };
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    const video = videoRef.current;
+    if (!video || !video.duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1);
+    video.currentTime = pct * video.duration;
+    setProgress(pct * 100);
   };
 
   return (
-    <motion.div
-      className="relative w-full max-w-4xl mx-auto rounded-xl overflow-hidden bg-[#11111198] shadow-[0_0_20px_rgba(0,0,0,0.2)] backdrop-blur-sm"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+    <div
+      className={cn("relative w-full overflow-hidden", className)}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
       <video
         ref={videoRef}
-        className="w-full"
+        className="h-full w-full object-cover"
         onTimeUpdate={handleTimeUpdate}
         src={src}
         onClick={togglePlay}
@@ -140,99 +78,42 @@ const VideoPlayer = ({ src }: { src: string }) => {
       <AnimatePresence>
         {showControls && (
           <motion.div
-            className="absolute bottom-0 mx-auto max-w-xl left-0 right-0 p-4 m-2 bg-[#11111198] backdrop-blur-md rounded-2xl"
-            initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-            exit={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-            transition={{ duration: 0.6, ease: "circInOut", type: "spring" }}
+            className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-full bg-ink/70 py-2 pl-2 pr-4 text-cream backdrop-blur-md"
+            initial={{ y: 16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 16, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-white text-sm">
-                {formatTime(currentTime)}
-              </span>
-              <CustomSlider
-                value={progress}
-                onChange={handleSeek}
-                className="flex-1"
+            <button
+              type="button"
+              onClick={togglePlay}
+              aria-label={isPlaying ? "Pause video" : "Play video"}
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-honey text-ink transition-transform duration-300 hover:scale-105"
+            >
+              {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+            </button>
+            <div
+              className="relative h-1 flex-1 cursor-pointer rounded-full bg-cream/20"
+              onClick={handleSeek}
+            >
+              <div
+                className="absolute inset-y-0 left-0 rounded-full bg-honey"
+                style={{ width: `${progress}%` }}
               />
-              <span className="text-white text-sm">{formatTime(duration)}</span>
             </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Button
-                    onClick={togglePlay}
-                    variant="ghost"
-                    size="icon"
-                    className="text-white hover:bg-[#111111d1] hover:text-white"
-                  >
-                    {isPlaying ? (
-                      <Pause className="h-5 w-5" />
-                    ) : (
-                      <Play className="h-5 w-5" />
-                    )}
-                  </Button>
-                </motion.div>
-                <div className="flex items-center gap-x-1">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Button
-                      onClick={toggleMute}
-                      variant="ghost"
-                      size="icon"
-                      className="text-white hover:bg-[#111111d1] hover:text-white"
-                    >
-                      {isMuted ? (
-                        <VolumeX className="h-5 w-5" />
-                      ) : volume > 0.5 ? (
-                        <Volume2 className="h-5 w-5" />
-                      ) : (
-                        <Volume1 className="h-5 w-5" />
-                      )}
-                    </Button>
-                  </motion.div>
-
-                  <div className="w-24">
-                    <CustomSlider
-                      value={volume * 100}
-                      onChange={handleVolumeChange}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                {[0.5, 1, 1.5, 2].map((speed) => (
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    key={speed}
-                  >
-                    <Button
-                      onClick={() => setSpeed(speed)}
-                      variant="ghost"
-                      size="icon"
-                      className={cn(
-                        "text-white hover:bg-[#111111d1] hover:text-white",
-                        playbackSpeed === speed && "bg-[#111111d1]"
-                      )}
-                    >
-                      {speed}x
-                    </Button>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            <span className="text-xs tabular-nums text-cream/70">{formatTime(currentTime)}</span>
+            <button
+              type="button"
+              onClick={toggleMute}
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+              className="shrink-0 text-cream/80 transition-colors hover:text-honey"
+            >
+              {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 

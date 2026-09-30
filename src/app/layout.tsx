@@ -1,15 +1,17 @@
-import type { Metadata } from 'next'
-import { Playfair_Display, Hanken_Grotesk } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Fraunces, Hanken_Grotesk } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { LoadingScreen } from '@/components/ui/loading-screen'
 import { SmoothScroll } from '@/components/ui/smooth-scroll'
+import { MotionProvider } from '@/components/motion/motion-provider'
 
-const playfair = Playfair_Display({
-  variable: '--font-playfair',
+// Variable Fraunces: light weights for display, the SOFT axis for rounded terminals.
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
+  axes: ['SOFT', 'opsz'],
   display: 'swap',
 })
 
@@ -46,12 +48,16 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: '#1C1A0F',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${hanken.variable}`}>
-      <body className="min-h-screen bg-sand text-char">
+    <html lang="en" className={`${fraunces.variable} ${hanken.variable}`}>
+      <body className="min-h-screen bg-cream text-ink">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NCGYC6HN68"
           strategy="afterInteractive"
@@ -64,9 +70,11 @@ export default function RootLayout({
             gtag('config', 'G-NCGYC6HN68');
           `}
         </Script>
-        <SmoothScroll />
-        <LoadingScreen />
-        {children}
+        <MotionProvider>
+          <SmoothScroll />
+          <LoadingScreen />
+          {children}
+        </MotionProvider>
       </body>
     </html>
   )

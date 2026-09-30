@@ -1,7 +1,9 @@
 'use client'
 
+import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { RiseText } from '@/components/motion/rise-text'
+import { Eyebrow, Rule } from '@/components/ui/eyebrow'
 import { Reveal } from '@/components/ui/reveal'
-import { ArrowUpRight, ArrowDown } from 'lucide-react'
 
 const CONNECT_LINKS = [
   {
@@ -36,44 +38,67 @@ const CONNECT_LINKS = [
 
 export function Connect() {
   return (
-    <section id="connect" className="bg-sand py-28 sm:py-36">
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <Reveal>
-          <p className="text-xs uppercase tracking-[0.24em] text-gold-deep">
-            Reach out
-          </p>
-          <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-char sm:text-5xl lg:text-6xl">
-            Let&apos;s stay in touch.
-          </h2>
-          <p className="mt-5 max-w-xl text-lg text-char/70">
-            A question about upcoming offerings, a quick hello, or early access to what's next. I read every message.
-          </p>
-        </Reveal>
+    <section id="connect" className="bg-cream py-28 sm:py-36">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-10">
+        <div className="grid gap-8 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-7">
+            <Eyebrow className="text-bronze">Reach out</Eyebrow>
+            <RiseText
+              text="Let's stay *in touch.*"
+              accentClassName="italic text-bronze"
+              className="mt-8 font-display text-[3.2rem] font-light leading-[0.98] tracking-[-0.035em] text-ink sm:text-7xl lg:text-[6.5rem]"
+            />
+          </div>
+          <Reveal className="md:col-span-5 md:pb-3">
+            <p className="max-w-md text-lg leading-relaxed text-ink/70">
+              A question about upcoming offerings, a quick hello, or early access to what&apos;s next. I read every message.
+            </p>
+          </Reveal>
+        </div>
 
-        <ul className="mt-14 divide-y divide-char/10 border-y border-char/10">
+        <ul className="mt-16 sm:mt-20">
           {CONNECT_LINKS.map((item, i) => {
             const external = !item.isInternal && item.href.startsWith('http')
+            const Arrow = item.isInternal ? ArrowDown : ArrowUpRight
             return (
-              <Reveal key={item.handle} delay={i * 0.06}>
-                <li>
+              <li key={item.handle}>
+                <Rule className="bg-ink/15" delay={i * 0.08} />
+                <Reveal delay={i * 0.08}>
                   <a
                     href={item.href}
                     target={external ? '_blank' : undefined}
                     rel={external ? 'noopener noreferrer' : undefined}
-                    className="group grid items-baseline gap-2 py-8 transition-colors duration-300 md:grid-cols-[1fr_1.3fr_1.6fr_auto] md:gap-10"
+                    className="group relative grid items-center gap-2 overflow-hidden rounded-2xl py-7 pl-2 pr-16 sm:pl-5 md:grid-cols-[1.1fr_1.1fr_1.5fr_auto] md:gap-8 md:py-9 md:pr-5"
                   >
-                    <h3 className="font-display text-2xl font-medium text-char sm:text-3xl">{item.title}</h3>
-                    <p className="text-base font-medium text-gold-deep break-words">{item.handle}</p>
-                    <p className="text-[15px] leading-relaxed text-char/60">{item.description}</p>
-                    <span aria-hidden className="hidden text-char/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-gold-deep md:block">
-                      {item.isInternal ? <ArrowDown className="h-5 w-5" /> : <ArrowUpRight className="h-5 w-5" />}
+                    {/* Ink wash that rises behind the row on hover */}
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 origin-bottom scale-y-0 rounded-2xl bg-ink transition-transform duration-500 ease-soft group-hover:scale-y-100 motion-reduce:transition-none"
+                    />
+                    <h3 className="relative font-display text-3xl font-light text-ink transition-[color,transform] duration-500 ease-soft group-hover:translate-x-2 group-hover:text-cream sm:text-4xl">
+                      {item.title}
+                    </h3>
+                    <p className="relative break-words text-base font-medium text-bronze transition-colors duration-500 group-hover:text-honey">
+                      {item.handle}
+                    </p>
+                    <p className="relative text-[15px] leading-relaxed text-ink/60 transition-colors duration-500 group-hover:text-cream/70">
+                      {item.description}
+                    </p>
+                    <span
+                      aria-hidden
+                      className={`absolute right-2 top-7 grid h-11 w-11 place-items-center rounded-full border border-ink/20 text-ink transition-all duration-500 ease-soft group-hover:border-honey group-hover:bg-honey group-hover:text-ink md:relative md:right-auto md:top-auto md:h-12 md:w-12 ${
+                        item.isInternal ? 'group-hover:translate-y-1' : 'group-hover:rotate-45'
+                      }`}
+                    >
+                      <Arrow className="h-5 w-5" />
                     </span>
                   </a>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             )
           })}
         </ul>
+        <Rule className="bg-ink/15" delay={0.3} />
       </div>
     </section>
   )

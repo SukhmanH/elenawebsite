@@ -2,9 +2,12 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { CheckCircle2 } from 'lucide-react'
+import { RevealImage } from '@/components/motion/clip-reveal'
+import { RiseText } from '@/components/motion/rise-text'
+import { Eyebrow, Rule } from '@/components/ui/eyebrow'
+import { PillButton } from '@/components/ui/pill-button'
 import { Reveal } from '@/components/ui/reveal'
-import { CheckCircle2, ArrowRight } from 'lucide-react'
-import Image from 'next/image'
 
 const TRANSFORMATIONS = [
   {
@@ -67,154 +70,177 @@ export function ProgramPresale() {
   }
 
   return (
-    <section id="program" className="bg-char py-28 text-sand sm:py-36 relative overflow-hidden">
-      {/* Background radial glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(198,142,124,0.08),transparent_70%)]"
-      />
+    <section id="program" className="relative overflow-clip bg-ink py-28 text-cream sm:py-36">
+      <div className="relative mx-auto max-w-[1400px] px-5 sm:px-10">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <Eyebrow className="text-honey">Radiant Reset presale</Eyebrow>
+          <Reveal>
+            <p className="flex items-center gap-3 rounded-full border border-cream/15 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.2em] text-cream/75">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="pulse-dot absolute inset-0 rounded-full bg-honey" />
+                <span className="relative h-1.5 w-1.5 rounded-full bg-honey" />
+              </span>
+              Nov 8 to mid-December
+            </p>
+          </Reveal>
+        </div>
 
-      <div className="relative mx-auto max-w-[1400px] px-6 sm:px-10">
-        <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.24em] text-gold">
-            Radiant Reset presale <span className="mx-2 text-gold/40">/</span> Nov 8 to mid-December
-          </p>
+        <RiseText
+          text="A space to reset and *ground* before the holidays"
+          accentClassName="italic text-honey"
+          className="mt-10 max-w-5xl font-display text-[2.9rem] font-light leading-[1] tracking-[-0.035em] sm:text-7xl lg:text-[6.2rem]"
+        />
 
-          <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] text-sand sm:text-5xl lg:text-7xl max-w-4xl">
-            A space to reset and ground before the holidays
-          </h2>
-
-          <p className="mt-6 font-display text-xl sm:text-2xl italic text-gold/90 max-w-3xl">
+        <Reveal delay={0.2}>
+          <p className="mt-8 max-w-2xl font-display text-xl font-light italic text-khaki sm:text-2xl">
             Starting November 8th and ending mid-December, before the holiday rush hits.
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:items-start">
-          {/* Main Info & Transformation Focus */}
-          <Reveal className="lg:col-span-7">
-            {/* Elena Program Image Banner */}
-            <div className="relative mb-8 aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl">
-              <Image
-                src="/elena-photo-11.jpg"
-                alt="Elena Collins portrait"
-                fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover object-[50%_35%]"
-              />
-              <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-char/80 via-char/20 to-transparent" />
+        <div className="mt-16 grid gap-14 lg:mt-20 lg:grid-cols-12 lg:items-start lg:gap-10">
+          <div className="lg:col-span-7">
+            <RevealImage
+              src="/elena-photo-11.jpg"
+              alt="Elena Collins portrait"
+              sizes="(max-width: 1024px) 100vw, 58vw"
+              className="aspect-[4/3] w-full rounded-[2rem] sm:aspect-[16/10]"
+              imgClassName="object-[50%_35%]"
+            />
+
+            <div className="mt-12 space-y-6 text-lg leading-relaxed text-cream/75">
+              <Reveal>
+                <p>
+                  Before the end-of-year rush sets in, this program gives you dedicated space to pause, release accumulated physical and mental tension, and come back to yourself.
+                </p>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <p>
+                  Full details and weekly structure will be delivered straight to your welcome email, so right now, all you need to do is reserve your spot on the presale list.
+                </p>
+              </Reveal>
             </div>
 
-            <div className="space-y-6 text-lg leading-relaxed text-sand/75">
-              <p>
-                Before the end-of-year rush sets in, this program gives you dedicated space to pause, release accumulated physical and mental tension, and come back to yourself.
-              </p>
-              <p>
-                Full details and weekly structure will be delivered straight to your welcome email, so right now, all you need to do is reserve your spot on the presale list.
-              </p>
-            </div>
+            <div className="mt-16">
+              <Eyebrow className="text-honey">What the program does for you</Eyebrow>
 
-            {/* What this program does for you */}
-            <div className="mt-10">
-              <h3 className="text-xs uppercase tracking-[0.22em] font-medium text-gold mb-6">
-                What the program does for you
-              </h3>
-
-              <ol className="divide-y divide-white/10 border-y border-white/10">
+              <ol className="mt-8">
                 {TRANSFORMATIONS.map((item, i) => (
-                  <li key={item.title} className="grid grid-cols-[2.5rem_1fr] gap-4 py-6">
-                    <span className="font-display text-xl italic text-gold/80">0{i + 1}</span>
-                    <div>
-                      <h4 className="font-display text-xl font-medium text-sand">{item.title}</h4>
-                      <p className="mt-2 text-[15px] leading-relaxed text-sand/65">{item.desc}</p>
-                    </div>
+                  <li key={item.title}>
+                    <Rule className="bg-cream/15" delay={i * 0.1} />
+                    <Reveal delay={i * 0.1}>
+                      <div className="group grid grid-cols-[3rem_1fr] gap-4 py-8 sm:grid-cols-[5rem_1fr]">
+                        <span className="font-display text-3xl font-light italic text-honey/80 transition-colors duration-500 group-hover:text-honey sm:text-4xl">
+                          0{i + 1}
+                        </span>
+                        <div>
+                          <h3 className="font-display text-2xl font-light text-cream transition-transform duration-500 ease-soft group-hover:translate-x-1 sm:text-3xl">
+                            {item.title}
+                          </h3>
+                          <p className="mt-3 max-w-xl leading-relaxed text-cream/65">{item.desc}</p>
+                        </div>
+                      </div>
+                    </Reveal>
                   </li>
                 ))}
               </ol>
+              <Rule className="bg-cream/15" delay={0.3} />
             </div>
-          </Reveal>
+          </div>
 
-          {/* Personalized Message Request Card */}
-          <Reveal delay={0.15} className="lg:col-span-5">
-            <div className="relative rounded-3xl border border-white/10 bg-char-2 p-8 sm:p-10 lg:sticky lg:top-24">
-              <p className="text-xs font-medium uppercase tracking-[0.22em] text-gold">
-                Request presale info
-              </p>
+          {/* Personalized request card */}
+          <Reveal delay={0.1} className="lg:sticky lg:top-24 lg:col-span-5">
+            <div className="relative overflow-hidden rounded-[2rem] border border-cream/10 bg-olive p-7 sm:p-10">
+              {/* Slow honey light pooling in the corner of the card */}
+              <div
+                aria-hidden
+                className="breathe-glow pointer-events-none absolute -right-1/3 -top-1/3 aspect-square w-[120%] rounded-full bg-[radial-gradient(closest-side,rgba(221,180,106,0.18)_0%,rgba(221,180,106,0)_100%)]"
+              />
 
-              {done ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center"
-                >
-                  <CheckCircle2 className="mx-auto h-10 w-10 text-gold" />
-                  <p className="mt-4 font-display text-lg italic text-gold leading-relaxed">
-                    {message}
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={onSubmit} className="mt-5 space-y-4">
-                  {/* Editable Note Box */}
-                  <div className="group relative rounded-2xl border border-white/15 bg-white/[0.03] p-5 transition-colors duration-300 focus-within:border-gold hover:border-white/30">
-                    <label htmlFor="presale-note" className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] font-medium text-gold/80 mb-2">
-                      <span>Your message to Elena</span>
-                      <span className="text-[10px] normal-case tracking-normal text-sand/45">Feel free to edit</span>
-                    </label>
-                    <textarea
-                      id="presale-note"
-                      rows={3}
-                      value={userNote}
-                      onChange={(e) => setUserNote(e.target.value)}
-                      disabled={loading}
-                      placeholder="Write your note to Elena..."
-                      className="w-full resize-none bg-transparent font-display text-lg italic leading-relaxed text-sand/90 placeholder:text-sand/40 focus:outline-none disabled:opacity-50"
-                    />
-                  </div>
-
-                  <p className="px-1 text-xs leading-relaxed text-sand/60">
-                    Add your email and I will send the full program breakdown straight to your inbox.
-                  </p>
-
-                  <div>
-                    <label htmlFor="presale-email" className="sr-only">
-                      Your email address
-                    </label>
-                    <input
-                      id="presale-email"
-                      type="email"
-                      required
-                      placeholder="Enter your email address"
-                      disabled={loading}
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full rounded-full border border-white/15 bg-white/[0.03] px-5 py-4 text-sand transition-all duration-300 placeholder:text-sand/40 focus:border-gold focus:bg-white/[0.08] focus:outline-none disabled:opacity-50"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="group flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-medium tracking-wide text-char transition-all duration-300 hover:bg-gold-deep active:translate-y-0 disabled:opacity-50"
-                  >
-                    <span>{loading ? 'Sending request...' : 'Send me the presale info'}</span>
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </button>
-
-                  {error && (
-                    <p className="text-center text-xs text-red-400 mt-2">
-                      {error}
-                    </p>
-                  )}
-                </form>
-              )}
-
-              <div className="mt-8 border-t border-white/10 pt-6 text-center">
-                <p className="text-xs text-sand/50">
-                  Prefer to write directly?{' '}
-                  <a href="mailto:elenacollinsyoga@gmail.com" className="text-gold underline hover:text-sand">
-                    elenacollinsyoga@gmail.com
-                  </a>
+              <div className="relative">
+                <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-honey">
+                  Request presale info
                 </p>
+                <p className="mt-4 font-display text-3xl font-light leading-tight text-cream sm:text-4xl">
+                  Reserve your <span className="italic text-honey">spot.</span>
+                </p>
+
+                {done ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="mt-8 rounded-2xl border border-cream/10 bg-ink/40 p-6 text-center"
+                  >
+                    <CheckCircle2 className="mx-auto h-10 w-10 text-honey" />
+                    <p className="mt-4 font-display text-lg italic leading-relaxed text-cream">
+                      {message}
+                    </p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={onSubmit} className="mt-7 space-y-4">
+                    {/* Editable Note Box */}
+                    <div className="rounded-2xl border border-cream/15 bg-ink/30 p-5 transition-colors duration-300 focus-within:border-honey hover:border-cream/30">
+                      <label
+                        htmlFor="presale-note"
+                        className="mb-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px] font-medium uppercase tracking-[0.2em] text-honey/90"
+                      >
+                        <span>Your message to Elena</span>
+                        <span className="text-[10px] normal-case tracking-normal text-cream/45">Feel free to edit</span>
+                      </label>
+                      <textarea
+                        id="presale-note"
+                        rows={3}
+                        value={userNote}
+                        onChange={(e) => setUserNote(e.target.value)}
+                        disabled={loading}
+                        placeholder="Write your note to Elena..."
+                        className="w-full resize-none bg-transparent font-display text-lg font-light italic leading-relaxed text-cream placeholder:text-cream/40 focus:outline-none disabled:opacity-50"
+                      />
+                    </div>
+
+                    <p className="px-1 text-xs leading-relaxed text-cream/60">
+                      Add your email and I will send the full program breakdown straight to your inbox.
+                    </p>
+
+                    <div>
+                      <label htmlFor="presale-email" className="sr-only">
+                        Your email address
+                      </label>
+                      <input
+                        id="presale-email"
+                        type="email"
+                        required
+                        placeholder="Enter your email address"
+                        disabled={loading}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full rounded-full border border-cream/15 bg-ink/30 px-6 py-4 text-cream transition-colors duration-300 placeholder:text-cream/40 focus:border-honey focus:outline-none disabled:opacity-50"
+                      />
+                    </div>
+
+                    <PillButton type="submit" disabled={loading} variant="honey" arrow className="w-full">
+                      {loading ? 'Sending request...' : 'Send me the presale info'}
+                    </PillButton>
+
+                    {error && (
+                      <p className="mt-2 text-center text-xs text-red-300">
+                        {error}
+                      </p>
+                    )}
+                  </form>
+                )}
+
+                <div className="mt-8 border-t border-cream/10 pt-6 text-center">
+                  <p className="text-xs text-cream/55">
+                    Prefer to write directly?{' '}
+                    <a
+                      href="mailto:elenacollinsyoga@gmail.com"
+                      className="text-honey underline decoration-honey/40 underline-offset-4 transition-colors hover:text-cream"
+                    >
+                      elenacollinsyoga@gmail.com
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </Reveal>
