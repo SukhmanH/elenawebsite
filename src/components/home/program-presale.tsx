@@ -80,7 +80,7 @@ export function ProgramPresale() {
                 <span className="pulse-dot absolute inset-0 rounded-full bg-honey" />
                 <span className="relative h-1.5 w-1.5 rounded-full bg-honey" />
               </span>
-              Nov 8 to mid-December
+              Nov 10 to mid-December
             </p>
           </Reveal>
         </div>
@@ -93,7 +93,6 @@ export function ProgramPresale() {
 
         <Reveal delay={0.2}>
           <p className="mt-8 max-w-2xl font-display text-xl font-light italic text-khaki sm:text-2xl">
-            Starting November 8th and ending mid-December, before the holiday rush hits.
           </p>
         </Reveal>
 

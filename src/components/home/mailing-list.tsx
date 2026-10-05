@@ -8,7 +8,7 @@ import { PillButton } from '@/components/ui/pill-button'
 import { Reveal } from '@/components/ui/reveal'
 
 const COMING = [
-  'Radiant Reset Program, Nov 8 to mid-December',
+  'Radiant Reset Program, Nov 10 to mid-December',
   'In-Person Retreats & Events',
   'Online Workshops & Calls',
 ]
